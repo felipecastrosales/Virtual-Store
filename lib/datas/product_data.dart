@@ -9,7 +9,7 @@ class ProductData {
   List images;
   List sizes;
 
-  ProductData.fromDocument(DocumentSnapshot snapshot){
+  ProductData.fromDocument(DocumentSnapshot snapshot) {
     id = snapshot.documentID;
     title = snapshot.data['title'];
     description = snapshot.data['description'];
@@ -18,12 +18,11 @@ class ProductData {
     sizes = snapshot.data['sizes'];
   }
 
-  Map<String, dynamic> toResumeMap(){
+  Map<String, dynamic> toResumeMap() {
     return {
       'title': title,
       'description': description,
       'price': price,
     };
   }
-
 }

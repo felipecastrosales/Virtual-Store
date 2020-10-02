@@ -45,7 +45,7 @@ class HomeTab extends StatelessWidget {
                   .orderBy('pos')
                   .getDocuments(),
               builder: (context, snapshot) {
-                if (!snapshot.hasData)
+                if (!snapshot.hasData) {
                   return SliverToBoxAdapter(
                     child: Container(
                       height: 200.0,
@@ -55,7 +55,7 @@ class HomeTab extends StatelessWidget {
                       ),
                     ),
                   );
-                else {
+                } else {
                   return SliverStaggeredGrid.count(
                     crossAxisCount: 2,
                     mainAxisSpacing: 4.0,

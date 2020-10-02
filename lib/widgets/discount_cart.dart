@@ -7,7 +7,7 @@ class DiscountCart extends StatelessWidget {
       margin: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
       child: ExpansionTile(
         title: Text(
-            "Cupom de Desconto",
+            'Cupom de Desconto',
           textAlign: TextAlign.center,
           style: TextStyle(
             fontFamily: 'Merriweather',

@@ -1,16 +1,17 @@
 
+import 'dart:async';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:scoped_model/scoped_model.dart';
-import 'dart:async';
 
 class UserModel extends Model {
 
-  FirebaseAuth _auth = FirebaseAuth.instance;
+  final FirebaseAuth _auth = FirebaseAuth.instance;
 
   FirebaseUser firebaseUser;
-  Map<String, dynamic> userData = Map();
+  Map<String, dynamic> userData = {};
 
   bool isLoading = false;
 
@@ -34,8 +35,7 @@ class UserModel extends Model {
     _auth.createUserWithEmailAndPassword(
         email: userData['email'],
         password: pass
-
-    ).then((user) async {
+      ).then((user) async {
       firebaseUser = user;
       await _saveUserData(userData);
       onSuccess();
@@ -74,7 +74,7 @@ class UserModel extends Model {
 
   void signOut() async {
     await _auth.signOut();
-    userData = Map();
+    userData = {};
     firebaseUser = null;
     notifyListeners();
   }
@@ -95,11 +95,12 @@ class UserModel extends Model {
   }
 
   Future<Null> _loadCurrentUser() async {
-    if(firebaseUser == null)
+    if(firebaseUser == null) {
       firebaseUser = await _auth.currentUser();
+    }
     if(firebaseUser != null){
       if(userData['name'] == null){
-        DocumentSnapshot docUser =
+        var docUser =
         await Firestore.instance.collection('users').
         document(firebaseUser.uid).get();
         userData = docUser.data;

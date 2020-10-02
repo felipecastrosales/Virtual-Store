@@ -1,8 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:loja_virtual/datas/product_data.dart';
-import 'package:loja_virtual/tiles/product_tile.dart';
+import '../datas/product_data.dart';
+import '../tiles/product_tile.dart';
 
 class CategoryScreen extends StatelessWidget {
   final DocumentSnapshot snapshot;
@@ -47,11 +47,11 @@ class CategoryScreen extends StatelessWidget {
                   .collection('items')
                   .getDocuments(),
               builder: (context, snapshot) {
-                if (!snapshot.hasData)
+                if (!snapshot.hasData) {
                   return Center(
                     child: CircularProgressIndicator(),
                   );
-                else
+                } else {
                   return TabBarView(
                     children: [
                       GridView.builder(
@@ -65,7 +65,7 @@ class CategoryScreen extends StatelessWidget {
                           ),
                           itemCount: snapshot.data.documents.length,
                           itemBuilder: (context, index) {
-                            ProductData data = ProductData.fromDocument(
+                            var data = ProductData.fromDocument(
                                 snapshot.data.documents[index]);
                             data.category = this.snapshot.documentID;
                             return ProductTile('grid', data);
@@ -74,13 +74,14 @@ class CategoryScreen extends StatelessWidget {
                           padding: EdgeInsets.all(4),
                           itemCount: snapshot.data.documents.length,
                           itemBuilder: (context, index) {
-                            ProductData data = ProductData.fromDocument(
+                            var data = ProductData.fromDocument(
                                 snapshot.data.documents[index]);
                             data.category = this.snapshot.documentID;
                             return ProductTile('list', data);
                           }),
                     ],
                   );
+                }
               })),
     );
   }

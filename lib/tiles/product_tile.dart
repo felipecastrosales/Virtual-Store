@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:loja_virtual/datas/product_data.dart';
-import 'package:loja_virtual/screens/product_screen.dart';
+
+import '../datas/product_data.dart';
+import '../screens/product_screen.dart';
 
 class ProductTile extends StatelessWidget {
   final String type;
@@ -12,7 +13,8 @@ class ProductTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: (){
-        Navigator.of(context).push(MaterialPageRoute(builder: (context)=>ProductScreen(product))
+        Navigator.of(context).push(MaterialPageRoute(builder: (context) =>
+        ProductScreen(product))
         );
       },
       child: Card(
@@ -43,7 +45,7 @@ class ProductTile extends StatelessWidget {
                             ),
                           ),
                           Text(
-                            "R\$ ${product.price.toStringAsFixed(2)}",
+                            'R\$ ${product.price.toStringAsFixed(2)}',
                             style: TextStyle(
                               fontFamily: 'Roboto',
                               fontSize: 16,
@@ -85,7 +87,7 @@ class ProductTile extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      "R\$ ${product.price.toStringAsFixed(2)}",
+                      'R\$ ${product.price.toStringAsFixed(2)}',
                       style: TextStyle(
                         fontFamily: 'Merriweather',
                         fontSize: 16,

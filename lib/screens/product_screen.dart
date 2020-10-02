@@ -1,13 +1,12 @@
 import 'package:carousel_pro/carousel_pro.dart';
 import 'package:flutter/material.dart';
-import 'package:loja_virtual/datas/cart_product.dart';
-import 'package:loja_virtual/datas/product_data.dart';
-import 'package:loja_virtual/models/cart_model.dart';
-import 'package:loja_virtual/models/user_model.dart';
-import 'package:loja_virtual/screens/login_screen.dart';
-import 'package:loja_virtual/screens/cart_screen.dart';
 
+import '../datas/cart_product.dart';
+import '../datas/product_data.dart';
+import '../models/cart_model.dart';
+import '../models/user_model.dart';
 import 'cart_screen.dart';
+import 'login_screen.dart';
 
 class ProductScreen extends StatefulWidget {
 
@@ -82,7 +81,7 @@ class _ProductScreenState extends State<ProductScreen> {
                 ),
                 SizedBox(height: 9),
                 Text(
-                  "Tamanhos disponíveis",
+                  'Tamanhos disponíveis',
                   style: TextStyle(
                       fontFamily: 'Merriweather',
                       fontSize: 16,
@@ -130,7 +129,7 @@ class _ProductScreenState extends State<ProductScreen> {
                     color: Colors.amber,
                     onPressed: size != null ? (){
                       if(UserModel.of(context).isLoggedIn()){
-                        CartProduct cartProduct = CartProduct();
+                        var cartProduct = CartProduct();
                         cartProduct.size = size;
                         cartProduct.quantity = 1;
                         cartProduct.productId = product.id;
@@ -161,7 +160,7 @@ class _ProductScreenState extends State<ProductScreen> {
                   ),
                 ),
                 SizedBox(height: 16,),
-                Text("Descrição:",
+                Text('Descrição:',
                   style: TextStyle(
                       fontFamily: 'Merriweather',
                       fontSize: 18,

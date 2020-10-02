@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:loja_virtual/models/user_model.dart';
 import 'package:scoped_model/scoped_model.dart';
+
+import '../models/user_model.dart';
 
 class SignUpScreen extends StatefulWidget {
   @override
@@ -25,7 +26,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
           backgroundColor: Colors.amber,
           centerTitle: true,
           title: Text(
-            "Criar conta",
+            'Criar conta',
             style: TextStyle(
               fontFamily: 'Merriweather',
               fontSize: 22,
@@ -36,10 +37,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
         ),
         body: ScopedModelDescendant<UserModel>(
           builder: (context, child, model) {
-            if (model.isLoading)
+            if (model.isLoading) {
               return Center(
                 child: CircularProgressIndicator(),
               );
+            }
             return Form(
               key: _formKey,
               child: ListView(
@@ -48,11 +50,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   TextFormField(
                       controller: _nameController,
                       decoration: InputDecoration(
-                        hintText: "Nome Completo",
+                        hintText: 'Nome Completo',
                       ),
                       validator: (text) {
                         if (text.isEmpty) {
-                          return "Nome inválido";
+                          return 'Nome inválido';
                         } else {
                           return null;
                         }
@@ -61,12 +63,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   TextFormField(
                       controller: _emailController,
                       decoration: InputDecoration(
-                        hintText: "E-mail",
+                        hintText: 'E-mail',
                       ),
                       keyboardType: TextInputType.emailAddress,
                       validator: (text) {
-                        if (text.isEmpty || !text.contains("@")) {
-                          return "E-mail inválido";
+                        if (text.isEmpty || !text.contains('@')) {
+                          return 'E-mail inválido';
                         } else {
                           return null;
                         }
@@ -76,11 +78,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       controller: _passController,
                       obscureText: true,
                       decoration: InputDecoration(
-                        hintText: "Senha",
+                        hintText: 'Senha',
                       ),
                       validator: (text) {
                         if (text.isEmpty || text.length < 8) {
-                          return "A senha deve ter pelo menos 8 caracteres";
+                          return 'A senha deve ter pelo menos 8 caracteres';
                         } else {
                           return null;
                         }
@@ -89,11 +91,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   TextFormField(
                       controller: _addressController,
                       decoration: InputDecoration(
-                        hintText: "Endereço",
+                        hintText: 'Endereço',
                       ),
                       validator: (text) {
                         if (text.isEmpty) {
-                          return "Endereço inválido";
+                          return 'Endereço inválido';
                         } else {
                           return null;
                         }
@@ -103,7 +105,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     height: 50,
                     child: RaisedButton(
                       child: Text(
-                        "CRIAR CONTA",
+                        'CRIAR CONTA',
                         style: TextStyle(
                             fontFamily: 'Roboto',
                             fontSize: 20,
@@ -113,7 +115,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       color: Colors.amber,
                       onPressed: () {
                         if (_formKey.currentState.validate()) {
-                          Map<String, dynamic> userData = {
+                          var userData = <String, dynamic>{
                             'name': _nameController.text,
                             'email': _emailController.text,
                             'address': _addressController.text,

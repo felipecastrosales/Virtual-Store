@@ -1,11 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:loja_virtual/models/user_model.dart';
-import 'package:loja_virtual/screens/signup_screen.dart';
 import 'package:scoped_model/scoped_model.dart';
 
-class LoginScreen extends StatefulWidget {
+import '../models/user_model.dart';
+import 'signup_screen.dart';
 
+class LoginScreen extends StatefulWidget {
   @override
   _LoginScreenState createState() => _LoginScreenState();
 }
@@ -22,83 +22,82 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        key: _scaffoldKey,
-        iconTheme: IconThemeData(color: Colors.white),
-        backgroundColor: Colors.amber,
-        centerTitle: true,
-        title: Text(
-          'Entrar',
-          style: TextStyle(
-            fontFamily: 'Merriweather',
-            fontSize: 22,
-            fontWeight: FontWeight.bold,
-            color: Colors.white,
-          ),
-        ),
-        actions: <Widget>[
-          FlatButton(
-            child: Text(
-              'CRIAR CONTA',
-              style: TextStyle(
-                fontFamily: 'Merriweather',
-                fontSize: 18,
-              ),
+        appBar: AppBar(
+          key: _scaffoldKey,
+          iconTheme: IconThemeData(color: Colors.white),
+          backgroundColor: Colors.amber,
+          centerTitle: true,
+          title: Text(
+            'Entrar',
+            style: TextStyle(
+              fontFamily: 'Merriweather',
+              fontSize: 22,
+              fontWeight: FontWeight.bold,
+              color: Colors.white,
             ),
-            textColor: Colors.white,
-            onPressed: (){
-              Navigator.of(context).pushReplacement(
-                MaterialPageRoute(
-                  builder: (context) => SignUpScreen())
-              );
-            },
-          )
-        ],
-      ),
-      body: ScopedModelDescendant<UserModel>(
-        builder: (context, child, model){
-          if(model.isLoading)
-            return Center(child: CircularProgressIndicator(),);
+          ),
+          actions: <Widget>[
+            FlatButton(
+              child: Text(
+                'CRIAR CONTA',
+                style: TextStyle(
+                  fontFamily: 'Merriweather',
+                  fontSize: 18,
+                ),
+              ),
+              textColor: Colors.white,
+              onPressed: () {
+                Navigator.of(context).pushReplacement(
+                    MaterialPageRoute(builder: (context) => SignUpScreen()));
+              },
+            )
+          ],
+        ),
+        body:
+            ScopedModelDescendant<UserModel>(builder: (context, child, model) {
+          if (model.isLoading) {
+            return Center(
+              child: CircularProgressIndicator(),
+            );
+          }
           return Form(
             key: _formKey,
             child: ListView(
               padding: EdgeInsets.all(24),
               children: <Widget>[
                 TextFormField(
-                  controller: _emailController,
+                    controller: _emailController,
                     decoration: InputDecoration(
-                      hintText: "E-mail",
+                      hintText: 'E-mail',
                     ),
                     keyboardType: TextInputType.emailAddress,
-                    validator: (text){
-                      if(text.isEmpty || !text.contains("@")) {
-                        return "E-mail inválido";
+                    validator: (text) {
+                      if (text.isEmpty || !text.contains('@')) {
+                        return 'E-mail inválido';
                       } else {
                         return null;
                       }
-                    }
-                ),
+                    }),
                 SizedBox(height: 16),
                 TextFormField(
-                  controller: _passController,
+                    controller: _passController,
                     obscureText: true,
                     decoration: InputDecoration(
-                      hintText: "Senha",
+                      hintText: 'Senha',
                     ),
-                    validator: (text){
-                      if(text.isEmpty || text.length < 8){
-                        return "A senha deve ter pelo menos 8 caracteres";
+                    validator: (text) {
+                      if (text.isEmpty || text.length < 8) {
+                        return 'A senha deve ter pelo menos 8 caracteres';
                       } else {
                         return null;
                       }
-                    }
-                ),
+                    }),
                 Align(
                   alignment: Alignment.centerRight,
                   child: FlatButton(
                     padding: EdgeInsets.zero,
-                    onPressed: (){
-                      if(_emailController.text.isEmpty)
+                    onPressed: () {
+                      if (_emailController.text.isEmpty) {
                         _scaffoldKey.currentState.showSnackBar(SnackBar(
                           content: Text(
                             'Insira seu e-mail para recuperar sua senha.',
@@ -109,9 +108,8 @@ class _LoginScreenState extends State<LoginScreen> {
                           ),
                           backgroundColor: Colors.red,
                           duration: Duration(seconds: 3),
-                        )
-                        );
-                      else {
+                        ));
+                      } else {
                         model.recoverPass(_emailController.text);
                         _scaffoldKey.currentState.showSnackBar(SnackBar(
                           content: Text(
@@ -123,18 +121,16 @@ class _LoginScreenState extends State<LoginScreen> {
                           ),
                           backgroundColor: Colors.amber,
                           duration: Duration(seconds: 3),
-                        )
-                        );
+                        ));
                       }
                     },
                     child: Text(
-                      "Esqueci minha senha",
+                      'Esqueci minha senha',
                       style: TextStyle(
                           fontFamily: 'Merriweather',
                           fontSize: 15,
                           fontWeight: FontWeight.bold,
-                          color: Colors.amber
-                      ),
+                          color: Colors.amber),
                     ),
                   ),
                 ),
@@ -142,19 +138,16 @@ class _LoginScreenState extends State<LoginScreen> {
                   height: 50,
                   child: RaisedButton(
                     child: Text(
-                      "ENTRAR",
+                      'ENTRAR',
                       style: TextStyle(
                           fontFamily: 'Roboto',
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
-                          color: Colors.white
-                      ),
+                          color: Colors.white),
                     ),
                     color: Colors.amber,
-                    onPressed: (){
-                      if(_formKey.currentState.validate()){
-
-                      }
+                    onPressed: () {
+                      if (_formKey.currentState.validate()) {}
                       model.signIn(
                         email: _emailController.text,
                         pass: _passController.text,
@@ -167,9 +160,7 @@ class _LoginScreenState extends State<LoginScreen> {
               ],
             ),
           );
-        }
-      )
-    );
+        }));
   }
 
   void _onSuccess() {
@@ -187,7 +178,6 @@ class _LoginScreenState extends State<LoginScreen> {
       ),
       backgroundColor: Colors.red,
       duration: Duration(seconds: 3),
-    )
-    );
+    ));
   }
 }

@@ -37,6 +37,7 @@ dependencies:
   url_launcher: ^5.1.1
 
 dev_dependencies:
+  effective_dart: ^1.2.0
   flutter_test:
     sdk: flutter
 
@@ -55,12 +56,6 @@ flutter:
     - family: Roboto
       fonts:
         - asset: fonts/Roboto-Regular.ttf
-        - asset: fonts/Roboto-Italic.ttf
-        - asset: fonts/Roboto-Bold.ttf
-
-    - family: LobsterTwo
-      fonts:
-        - asset: fonts/LobsterTwo-Regular.ttf
 
     - family: Merriweather
       fonts:

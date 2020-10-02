@@ -1,17 +1,21 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:loja_virtual/datas/cart_product.dart';
-import 'package:loja_virtual/models/user_model.dart';
-import 'package:scoped_model/scoped_model.dart';
 import 'package:flutter/material.dart';
+import 'package:scoped_model/scoped_model.dart';
+
+import '../datas/cart_product.dart';
+import 'user_model.dart';
 
 class CartModel extends Model {
+
   UserModel user;
   List<CartProduct> products = [];
   bool isLoading = false;
-  CartModel(this.user){
-    if(user.isLoggedIn())
-    _loadCartItem();
+
+  CartModel(this.user) {
+    if (user.isLoggedIn()) {
+      _loadCartItem();
+    }
   }
 
   static CartModel of(BuildContext context) =>
@@ -39,40 +43,38 @@ class CartModel extends Model {
     notifyListeners();
   }
 
-  void decProduct(CartProduct cartProduct){
+  void decProduct(CartProduct cartProduct) {
     cartProduct.quantity--;
-    Firestore
-      .instance
-      .collection('users')
-      .document(user.firebaseUser.uid)
-      .collection('cart')
-      .document(cartProduct.cartId).updateData(cartProduct.toMap());
-    notifyListeners();
-  }
-
-  void incProduct(CartProduct cartProduct){
-    cartProduct.quantity++;
-    Firestore
-        .instance
+    Firestore.instance
         .collection('users')
         .document(user.firebaseUser.uid)
         .collection('cart')
-        .document(cartProduct.cartId).updateData(cartProduct.toMap());
+        .document(cartProduct.cartId)
+        .updateData(cartProduct.toMap());
+    notifyListeners();
+  }
+
+  void incProduct(CartProduct cartProduct) {
+    cartProduct.quantity++;
+    Firestore.instance
+        .collection('users')
+        .document(user.firebaseUser.uid)
+        .collection('cart')
+        .document(cartProduct.cartId)
+        .updateData(cartProduct.toMap());
     notifyListeners();
   }
 
   void _loadCartItem() async {
-    QuerySnapshot query = await Firestore
-        .instance
+    var query = await Firestore.instance
         .collection('users')
         .document(user.firebaseUser.uid)
         .collection('cart')
         .getDocuments();
 
-    products = query.documents.map((doc) =>
-        CartProduct.fromDocument(doc)).toList();
+    products =
+        query.documents.map((doc) => CartProduct.fromDocument(doc)).toList();
 
     notifyListeners();
   }
-
 }

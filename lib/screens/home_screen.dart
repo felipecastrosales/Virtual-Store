@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:loja_virtual/tabs/home_tab.dart';
-import 'package:loja_virtual/tabs/products_tab.dart';
-import 'package:loja_virtual/widgets/cart_button.dart';
-import 'package:loja_virtual/widgets/custom_drawer.dart';
+
+import '../tabs/home_tab.dart';
+import '../tabs/products_tab.dart';
+import '../widgets/cart_button.dart';
+import '../widgets/custom_drawer.dart';
 
 class HomeScreen extends StatelessWidget {
   final _pageController = PageController();
@@ -23,7 +24,7 @@ class HomeScreen extends StatelessWidget {
             backgroundColor: Colors.amber,
             iconTheme: IconThemeData(color: Colors.white),
             title: Text(
-              "Produtos",
+              'Produtos',
               style: TextStyle(
                 fontFamily: 'Merriweather',
                 fontSize: 22,

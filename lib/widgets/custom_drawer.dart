@@ -1,9 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:loja_virtual/models/user_model.dart';
-import 'package:loja_virtual/screens/login_screen.dart';
-import 'package:loja_virtual/tiles/drawer_tile.dart';
 import 'package:scoped_model/scoped_model.dart';
+
+import '../models/user_model.dart';
+import '../screens/login_screen.dart';
+import '../tiles/drawer_tile.dart';
 
 class CustomDrawer extends StatelessWidget {
   final PageController pageController;
@@ -55,6 +56,7 @@ class CustomDrawer extends StatelessWidget {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: <Widget>[
                                 Text(
+                                  // ignore: lines_longer_than_80_chars
                                   'Olá, ${!model.isLoggedIn() ? '' : model.userData['name']}',
                                   style: TextStyle(
                                     fontFamily: 'Roboto',
@@ -76,13 +78,14 @@ class CustomDrawer extends StatelessWidget {
                                     ),
                                   ),
                                   onTap: () {
-                                    if (!model.isLoggedIn())
+                                    if (!model.isLoggedIn()) {
                                       Navigator.of(context).push(
                                           MaterialPageRoute(
                                               builder: (context) =>
                                                   LoginScreen()));
-                                    else
+                                    } else {
                                       model.signOut();
+                                    }
                                   },
                                 )
                               ],
@@ -102,8 +105,8 @@ class CustomDrawer extends StatelessWidget {
               DrawerTile(Icons.home, 'Início', pageController, 0),
               DrawerTile(Icons.list, 'Produtos', pageController, 1),
               DrawerTile(Icons.location_on, 'Loja', pageController, 2),
-              DrawerTile(
-                  Icons.shopping_cart, 'Meus pedidos', pageController, 3),
+              // ignore: lines_longer_than_80_chars
+              DrawerTile(Icons.shopping_cart, 'Meus pedidos', pageController, 3),
             ],
           ),
         ],

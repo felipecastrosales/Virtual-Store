@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:loja_virtual/models/cart_model.dart';
-import 'package:loja_virtual/models/user_model.dart';
-import 'package:loja_virtual/screens/login_screen.dart';
-import 'package:loja_virtual/tiles/cart_tile.dart';
-import 'package:loja_virtual/widgets/discount_cart.dart';
 import 'package:scoped_model/scoped_model.dart';
+
+import '../models/cart_model.dart';
+import '../models/user_model.dart';
+import '../screens/login_screen.dart';
+import '../tiles/cart_tile.dart';
+import '../widgets/discount_cart.dart';
 
 class CartScreen extends StatelessWidget {
   @override
@@ -29,76 +30,42 @@ class CartScreen extends StatelessWidget {
               padding: EdgeInsets.only(right: 8),
               child: ScopedModelDescendant<CartModel>(
                 builder: (context, child, model) {
-                  int quantityproducts = model.products.length;
+                  var quantityproducts = model.products.length;
                   return Text(
                     '${quantityproducts ?? 0} '
-                        '${quantityproducts == 1 ? 'ITEM' : 'ITENS'}',
+                    '${quantityproducts == 1 ? 'ITEM' : 'ITENS'}',
                     style: TextStyle(
                         fontFamily: 'Merriweather',
                         fontSize: 18,
-                        color: Colors.white
-                    ),
+                        color: Colors.white),
                   );
                 },
-              )
-          )
+              ))
         ],
       ),
-      body: ScopedModelDescendant<CartModel>(
-          builder: (context, child, model) {
-            if (model.isLoading && UserModel.of(context).isLoggedIn()) {
-              return Center(child: CircularProgressIndicator(),
-              );
-            } else if (!UserModel.of(context).isLoggedIn()) {
-              return Container(
-                padding: EdgeInsets.all(16),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Icon(
-                      Icons.remove_shopping_cart,
-                      color: Colors.amber,
-                      size: 100,
-                    ),
-                    SizedBox(height: 16,),
-                    Text(
-                      'Faça o login ou cadastre-se \n para adicionar produtos \n ao seu carrinho',
-                      style: TextStyle(
-                        fontFamily: 'Merriweather',
-                        fontSize: 22,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.amber,
-                      ),
-                      textAlign: TextAlign.center,
-                    ),
-                    SizedBox(height: 16,),
-                    RaisedButton(
-                      color: Colors.amber,
-                      child: Text(
-                        "ENTRAR",
-                        style: TextStyle(
-                          fontFamily: 'Merriweather',
-                          fontSize: 22,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                        ),
-                        textAlign: TextAlign.center,
-                      ),
-                      onPressed: () {
-                        Navigator.of(context).push(
-                            MaterialPageRoute(
-                                builder: (context) => LoginScreen())
-                        );
-                      },
-                    ),
-                  ],
+      body: ScopedModelDescendant<CartModel>(builder: (context, child, model) {
+        if (model.isLoading && UserModel.of(context).isLoggedIn()) {
+          return Center(
+            child: CircularProgressIndicator(),
+          );
+        } else if (!UserModel.of(context).isLoggedIn()) {
+          return Container(
+            padding: EdgeInsets.all(16),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Icon(
+                  Icons.remove_shopping_cart,
+                  color: Colors.amber,
+                  size: 100,
                 ),
-              );
-            } else if (model.products == null || model.products.length == 0) {
-              return Center(
-                child: Text(
-                  'Você não possui nenhum \n produto no carrinho.',
+                SizedBox(
+                  height: 16,
+                ),
+                Text(
+                  // ignore: lines_longer_than_80_chars
+                  'Faça o login ou cadastre-se \n para adicionar produtos \n ao seu carrinho',
                   style: TextStyle(
                     fontFamily: 'Merriweather',
                     fontSize: 22,
@@ -107,23 +74,55 @@ class CartScreen extends StatelessWidget {
                   ),
                   textAlign: TextAlign.center,
                 ),
-              );
-            } else {
-              return ListView(
-                children: <Widget>[
-                  Column(
-                    children: model.products.map(
-                        (product){
-                          return CartTile(product);
-                        }
-                    ).toList(),
+                SizedBox(
+                  height: 16,
+                ),
+                RaisedButton(
+                  color: Colors.amber,
+                  child: Text(
+                    'ENTRAR',
+                    style: TextStyle(
+                      fontFamily: 'Merriweather',
+                      fontSize: 22,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                    ),
+                    textAlign: TextAlign.center,
                   ),
-                  DiscountCart()
-                ],
-              );
-            }
-          }
-      ),
+                  onPressed: () {
+                    Navigator.of(context).push(
+                        MaterialPageRoute(builder: (context) => LoginScreen()));
+                  },
+                ),
+              ],
+            ),
+          );
+        } else if (model.products == null || model.products.length == 0) {
+          return Center(
+            child: Text(
+              'Você não possui nenhum \n produto no carrinho.',
+              style: TextStyle(
+                fontFamily: 'Merriweather',
+                fontSize: 22,
+                fontWeight: FontWeight.bold,
+                color: Colors.amber,
+              ),
+              textAlign: TextAlign.center,
+            ),
+          );
+        } else {
+          return ListView(
+            children: <Widget>[
+              Column(
+                children: model.products.map((product) {
+                  return CartTile(product);
+                }).toList(),
+              ),
+              DiscountCart()
+            ],
+          );
+        }
+      }),
     );
   }
 }
