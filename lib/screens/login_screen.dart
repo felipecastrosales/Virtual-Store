@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:scoped_model/scoped_model.dart';
-
 import '../models/user_model.dart';
 import 'signup_screen.dart';
 
@@ -22,8 +21,8 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        key: _scaffoldKey,
         appBar: AppBar(
-          key: _scaffoldKey,
           iconTheme: IconThemeData(color: Colors.white),
           backgroundColor: Colors.amber,
           centerTitle: true,
@@ -106,7 +105,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               fontSize: 16,
                             ),
                           ),
-                          backgroundColor: Colors.red,
+                          backgroundColor: Colors.redAccent,
                           duration: Duration(seconds: 3),
                         ));
                       } else {

@@ -6,14 +6,10 @@ class CartButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return FloatingActionButton(
       backgroundColor: Colors.amber,
-      child: Icon(
-        Icons.shopping_cart,
-        color: Colors.white,
-      ),
-      onPressed: (){
-        Navigator.of(context).push(
-          MaterialPageRoute(builder: (context)=>CartScreen())
-        );
+      child: Icon(Icons.shopping_cart, color: Colors.white),
+      onPressed: () {
+        Navigator.of(context)
+            .push(MaterialPageRoute(builder: (context) => CartScreen()));
       },
     );
   }

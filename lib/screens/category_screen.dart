@@ -31,12 +31,8 @@ class CategoryScreen extends StatelessWidget {
               indicatorColor: Colors.white,
               labelColor: Colors.white,
               tabs: <Widget>[
-                Tab(
-                  icon: Icon(Icons.grid_on),
-                ),
-                Tab(
-                  icon: Icon(Icons.list),
-                ),
+                Tab(icon: Icon(Icons.grid_on)),
+                Tab(icon: Icon(Icons.list)),
               ],
             ),
           ),

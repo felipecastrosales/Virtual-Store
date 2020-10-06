@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:scoped_model/scoped_model.dart';
-
 import '../models/user_model.dart';
 
 class SignUpScreen extends StatefulWidget {
@@ -115,9 +114,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       color: Colors.amber,
                       onPressed: () {
                         if (_formKey.currentState.validate()) {
-                          var userData = <String, dynamic>{
+                          // ignore: omit_local_variable_types
+                          Map<String, dynamic> userData = {
                             'name': _nameController.text,
-                            'email': _emailController.text,
+                            'email': _emailController.text, 
                             'address': _addressController.text,
                           };
 

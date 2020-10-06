@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-
 import '../datas/product_data.dart';
 import '../screens/product_screen.dart';
 
 class ProductTile extends StatelessWidget {
+  
   final String type;
   final ProductData product;
 

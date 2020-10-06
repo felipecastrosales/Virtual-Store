@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:scoped_model/scoped_model.dart';
-
 import '../models/cart_model.dart';
 import '../models/user_model.dart';
 import '../screens/login_screen.dart';
 import '../tiles/cart_tile.dart';
+import '../widgets/cart_price.dart';
 import '../widgets/discount_cart.dart';
+import '../widgets/ship_card.dart';
+import 'order_screen.dart';
 
 class CartScreen extends StatelessWidget {
   @override
@@ -68,7 +70,7 @@ class CartScreen extends StatelessWidget {
                   'Faça o login ou cadastre-se \n para adicionar produtos \n ao seu carrinho',
                   style: TextStyle(
                     fontFamily: 'Merriweather',
-                    fontSize: 22,
+                    fontSize: 20,
                     fontWeight: FontWeight.bold,
                     color: Colors.amber,
                   ),
@@ -118,7 +120,15 @@ class CartScreen extends StatelessWidget {
                   return CartTile(product);
                 }).toList(),
               ),
-              DiscountCart()
+              DiscountCart(),
+              ShipCard(),
+              CartPrice(() async {
+                var orderId = await model.finishOrder();
+                if (orderId != null) {
+                  Navigator.of(context).pushReplacement(MaterialPageRoute(
+                      builder: (context) => OrderScreen(orderId)));
+                }
+              }),
             ],
           );
         }

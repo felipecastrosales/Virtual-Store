@@ -1,18 +1,19 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:scoped_model/scoped_model.dart';
-
 import '../models/user_model.dart';
 import '../screens/login_screen.dart';
 import '../tiles/drawer_tile.dart';
 
 class CustomDrawer extends StatelessWidget {
+
   final PageController pageController;
 
   CustomDrawer(this.pageController);
 
   @override
   Widget build(BuildContext context) {
+
     Widget _buildDrawerBack() => Container(
           decoration: BoxDecoration(
             gradient: LinearGradient(colors: [
@@ -22,16 +23,17 @@ class CustomDrawer extends StatelessWidget {
             ], begin: Alignment.topCenter, end: Alignment.bottomCenter),
           ),
         );
+
     return Drawer(
       child: Stack(
         children: <Widget>[
           _buildDrawerBack(),
           ListView(
-            padding: EdgeInsets.only(left: 24.0, top: 16.0),
+            padding: EdgeInsets.only(left: 24, top: 16),
             children: <Widget>[
               Container(
-                margin: EdgeInsets.only(bottom: 8.0),
-                padding: EdgeInsets.fromLTRB(0.0, 12.0, 16.0, 0.0),
+                margin: EdgeInsets.only(bottom: 8),
+                padding: EdgeInsets.fromLTRB(0, 12, 16, 0),
                 height: 170,
                 child: Stack(
                   children: <Widget>[
@@ -95,12 +97,8 @@ class CustomDrawer extends StatelessWidget {
                   ],
                 ),
               ),
-              SizedBox(
-                height: 10,
-                width: 80,
-                child: Divider(
-                  color: Colors.amber,
-                ),
+              Divider(
+                color: Colors.amber,
               ),
               DrawerTile(Icons.home, 'Início', pageController, 0),
               DrawerTile(Icons.list, 'Produtos', pageController, 1),
