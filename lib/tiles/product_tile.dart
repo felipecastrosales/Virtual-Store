@@ -24,7 +24,7 @@ class ProductTile extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: <Widget>[
                   AspectRatio(
-                    aspectRatio: 0.8,
+                    aspectRatio: 0.9,
                     child: Image.network(
                       product.images[0],
                       fit: BoxFit.cover,
@@ -39,7 +39,7 @@ class ProductTile extends StatelessWidget {
                             product.title,
                             style: TextStyle(
                               fontFamily: 'Merriweather',
-                              fontSize: 17,
+                              fontSize: 16,
                               fontWeight: FontWeight.bold,
                               color: Colors.grey[800],
                             ),

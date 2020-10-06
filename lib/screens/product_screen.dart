@@ -77,7 +77,7 @@ class _ProductScreenState extends State<ProductScreen> {
                     color: Colors.amber,
                   ),
                 ),
-                SizedBox(height: 9),
+                SizedBox(height: 8),
                 Text(
                   'Tamanhos disponíveis',
                   style: TextStyle(
@@ -132,7 +132,9 @@ class _ProductScreenState extends State<ProductScreen> {
                               cartProduct.quantity = 1;
                               cartProduct.productId = product.id;
                               cartProduct.category = product.category;
+
                               CartModel.of(context).addCartItem(cartProduct);
+
                               Navigator.of(context).push(MaterialPageRoute(
                                   builder: (context) => CartScreen()));
                             } else {
@@ -168,7 +170,7 @@ class _ProductScreenState extends State<ProductScreen> {
                   product.description,
                   style: TextStyle(
                       fontFamily: 'Roboto',
-                      fontSize: 18,
+                      fontSize: 16,
                       fontWeight: FontWeight.w800,
                       color: Colors.grey[800]),
                 ),

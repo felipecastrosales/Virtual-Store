@@ -114,8 +114,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       color: Colors.amber,
                       onPressed: () {
                         if (_formKey.currentState.validate()) {
-                          // ignore: omit_local_variable_types
-                          Map<String, dynamic> userData = {
+                          var userData = <String, dynamic>{
                             'name': _nameController.text,
                             'email': _emailController.text, 
                             'address': _addressController.text,

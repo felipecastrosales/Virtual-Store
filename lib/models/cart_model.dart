@@ -23,12 +23,13 @@ class CartModel extends Model {
 
   void addCartItem(CartProduct cartProduct) {
     products.add(cartProduct);
+
     Firestore.instance
         .collection('users')
         .document(user.firebaseUser.uid)
         .collection('cart')
         .add(cartProduct.toMap())
-        .then((doc) => cartProduct.productId = doc.documentID);
+        .then((doc) => cartProduct.cartId = doc.documentID);
     notifyListeners();
   }
 

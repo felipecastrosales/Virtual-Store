@@ -1,5 +1,5 @@
- <p align="center">
-      <img src="https://user-images.githubusercontent.com/59374587/94870841-f459fc00-041e-11eb-9065-7bbbccd4b2a1.png" width="70px" alt="https://www.flaticon.com/free-icon/shopping-cart_833314 Kiranshastry"/>
+<p align="center">
+      <img src="https://user-images.githubusercontent.com/59374587/94870841-f459fc00-041e-11eb-9065-7bbbccd4b2a1.png" width="60px" alt="https://www.flaticon.com/free-icon/shopping-cart_833314 Kiranshastry"/>
 </p>
 
 <h1 align="center">Virtual Store</h1>
@@ -24,10 +24,9 @@
 <h2 align="center">Functionalities 🛠️</h2>
 
    <p>
-
-- View the products available in Store 
-, with:
-    -  Purchase Option (can use a discount coupon for this),
+   
+- View the products available in Store 👀, with:
+    -  Purchase Option (can use a discount coupon for this) 💯,
     -  Price,
     -  Description,
     -  Size.
@@ -59,9 +58,12 @@
 <h2 align="center">Challenges and Learnings along the way 🤯</h2>
 
    <p>
-    This application was quite complex and with many challenges from the beginning, it was the most time-consuming and complicated I have ever made.<br>
+    This application was quite complex and with many challenges from the beginning, it was the most time-consuming and complicated I have ever made. 💪<br> 
+    A very interesting thing a that I used was the packpage <a href="https://pub.dev/packages/effective_dart">effective_dart</a>, which will help me to put good practices in the Dart language, it is a very useful tool, and it helps quite. See more <a href="https://dart.dev/guides/language/effective-dart">here</a>.<br>
     My experience with Flutter and Firebase increased a lot after this app, it was challenging and that in the middle of the way there were a lot of mistakes, which further increased my curiosity and desire to learn more.<br>
-    I learned a lot about Firebase, and I loved its speed of action and structuring. Some mistakes were a little silly, but they made me be more attentive, like a simple space after creating a field haha.<br>
+    I learned a lot about Firebase, and I loved its speed of action and structuring. Some mistakes were a little silly, but they made me be more attentive, like a simple space after creating a field haha. <br>
+    In the last push on GitHub, I realized that the application was not yet complete, and I found that I had two folders with the same name and application, one was complete, and the other was not, and it took me a while to complete it and set it up it again.<br>
+    I was also having a problem logging in users, and I realized that the error was in the as signup_screen folder, it was fixed, and the problem was resolved.<br>
     There were many learnings, and that I will take all of them to my career. 🚀
    </p>
 
@@ -69,7 +71,9 @@
 
 <h2 align="center">How to Use 🤔</h2>
 
-   ```   
+   ```
+   First of all, correctly configure the Flutter development environment on your machine, see https://flutter.dev/docs/get-started/install
+   
    - Clone this repository:
    $ git clone https://github.com/felipecastrosales/Virtual-Store Virtual-Store
 
@@ -77,7 +81,7 @@
    $ cd Virtual-Store
 
    - For install dependencies:
-   $ flutter packages get
+   $ flutter pub get
 
    - Run the app: 
    $ flutter run
@@ -85,9 +89,28 @@
 
 ---
 
+<h2 align="center">How to Contribute 💪</h2>
+
+   ```
+   - Fork the project 
+
+   - Create a new branch with your changes:
+   $ git checkout -b my-feature
+
+   - Save your changes and create a commit message telling you what you did:
+   $ git commit -m "feature: My new feature"
+
+   - Submit your changes:
+   $ git push origin my-feature
+   ```
+
+---
+
 <h2 align="center">License 📝</h2>
 
-   This repository is under MIT license. You can see the [LICENSE](https://github.com/felipecastrosales/Virtual-Store/blob/master/LICENSE) file for more details. 😉
+<p align="center">
+   This repository is under MIT license. You can see the <a href="https://github.com/felipecastrosales/Virtual-Store/blob/master/LICENSE">LICENSE</a> file for more details. 😉
+</p>
 
    ---
 
