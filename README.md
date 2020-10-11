@@ -72,7 +72,8 @@
 <h2 align="center">How to Use 🤔</h2>
 
    ```
-   First of all, correctly configure the Flutter development environment on your machine, see https://flutter.dev/docs/get-started/install
+   First of all, correctly configure the Flutter development environment on your machine,
+   see https://flutter.dev/docs/get-started/install
    
    - Clone this repository:
    $ git clone https://github.com/felipecastrosales/Virtual-Store Virtual-Store

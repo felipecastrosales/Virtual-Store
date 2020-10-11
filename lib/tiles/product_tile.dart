@@ -76,6 +76,7 @@ class ProductTile extends StatelessWidget {
               child: Container(
                 padding: EdgeInsets.all(8),
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
                     Text(
                       product.title,

@@ -90,7 +90,7 @@ class CartModel extends Model {
   }
 
   double getShipPrice() {
-    return 0.00;
+    return 9.99;
   }
 
   Future<String> finishOrder() async {
