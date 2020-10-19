@@ -15,7 +15,7 @@ class CartTile extends StatelessWidget {
       return Row(
         children: <Widget>[
           Container(
-            padding: EdgeInsets.all(8),
+            padding: EdgeInsets.fromLTRB(8, 8, 0, 8),
             width: 150,
             child: Image.network(
               cartProduct.productData.images[0],
@@ -26,6 +26,7 @@ class CartTile extends StatelessWidget {
             child: Container(
               padding: EdgeInsets.all(8),
               child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
                   Text(
                     cartProduct.productData.title,
@@ -67,27 +68,28 @@ class CartTile extends StatelessWidget {
                       ),
                       Text(cartProduct.quantity.toString()),
                       IconButton(
-                        icon: Icon(Icons.add, color: Colors.amber),
+                        icon: Icon(Icons.add, color: Colors.amber, size: 30),
                         onPressed: () {
                           CartModel.of(context).incProduct(cartProduct);
                         },
                       ),
-                      FlatButton(
-                        child: Text(
-                          'Remover',
-                          style: TextStyle(
-                            fontFamily: 'Merriweather',
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.grey[500],
-                          ),
-                        ),
-                        onPressed: () {
-                          CartModel.of(context).removeCartItem(cartProduct);
-                        },
-                      )
                     ],
                   ),
+                  FlatButton(
+                    padding: EdgeInsets.all(0),
+                    child: Text(
+                      'Remover',
+                      style: TextStyle(
+                        fontFamily: 'Merriweather',
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.grey[500],
+                      ),
+                    ),
+                    onPressed: () {
+                      CartModel.of(context).removeCartItem(cartProduct);
+                    },
+                  )
                 ],
               ),
             ),
@@ -98,8 +100,8 @@ class CartTile extends StatelessWidget {
 
     return Card(
         margin: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-        child: cartProduct.productData == null ?
-        FutureBuilder<DocumentSnapshot>(
+        child: cartProduct.productData == null
+            ? FutureBuilder<DocumentSnapshot>(
                 future: Firestore.instance
                     .collection('products')
                     .document(cartProduct.category)

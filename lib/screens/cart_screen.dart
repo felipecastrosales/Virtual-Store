@@ -39,8 +39,7 @@ class CartScreen extends StatelessWidget {
                     style: TextStyle(
                         fontFamily: 'Merriweather',
                         fontSize: 18,
-                        color: Colors.white
-                    ),
+                        color: Colors.white),
                   );
                 },
               ))

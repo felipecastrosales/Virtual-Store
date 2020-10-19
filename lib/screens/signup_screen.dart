@@ -116,7 +116,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         if (_formKey.currentState.validate()) {
                           var userData = <String, dynamic>{
                             'name': _nameController.text,
-                            'email': _emailController.text, 
+                            'email': _emailController.text,
                             'address': _addressController.text,
                           };
 
@@ -163,7 +163,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
       ),
       backgroundColor: Colors.red,
       duration: Duration(seconds: 3),
-      )
-    );
+    ));
   }
 }

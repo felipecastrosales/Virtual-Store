@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import '../screens/category_screen.dart';
 
 class CategoryTile extends StatelessWidget {
-
   final DocumentSnapshot snapshot;
 
   CategoryTile(this.snapshot);
@@ -16,8 +15,9 @@ class CategoryTile extends StatelessWidget {
         backgroundColor: Colors.transparent,
         backgroundImage: NetworkImage(snapshot.data['icon']),
       ),
-      title: Text(snapshot.data['title'],
-        style:  TextStyle(
+      title: Text(
+        snapshot.data['title'],
+        style: TextStyle(
           fontFamily: 'Roboto',
           fontSize: 20,
           fontWeight: FontWeight.w600,
@@ -25,10 +25,9 @@ class CategoryTile extends StatelessWidget {
         ),
       ),
       trailing: Icon(Icons.keyboard_arrow_right),
-      onTap: (){
+      onTap: () {
         Navigator.of(context).push(
-          MaterialPageRoute(builder: (context)=>CategoryScreen(snapshot))
-        );
+            MaterialPageRoute(builder: (context) => CategoryScreen(snapshot)));
       },
     );
   }

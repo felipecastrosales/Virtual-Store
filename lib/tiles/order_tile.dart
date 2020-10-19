@@ -10,7 +10,7 @@ class OrderTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-        margin: EdgeInsets.symmetric(vertical: 4, horizontal: 8),
+        margin: EdgeInsets.all(8),
         child: Padding(
           padding: EdgeInsets.all(8),
           child: StreamBuilder<DocumentSnapshot>(
@@ -29,17 +29,17 @@ class OrderTile extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       Text(
-                        'O Código do pedido é: \n ${snapshot.data.documentID}',
+                        'O Código do Pedido é:\n${snapshot.data.documentID}',
                         style: TextStyle(fontWeight: FontWeight.bold),
                       ),
-                      SizedBox(height: 4),
+                      SizedBox(height: 6),
                       Text(_buildProductsText(snapshot.data)),
-                      SizedBox(height: 4),
+                      SizedBox(height: 6),
                       Text(
                         'Status do Pedido:',
                         style: TextStyle(fontWeight: FontWeight.bold),
                       ),
-                      SizedBox(height: 4),
+                      SizedBox(height: 6),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: <Widget>[

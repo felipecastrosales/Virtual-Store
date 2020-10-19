@@ -90,7 +90,7 @@ class CartModel extends Model {
   }
 
   double getShipPrice() {
-    return 9.99;
+    return 0.00;
   }
 
   Future<String> finishOrder() async {
@@ -101,8 +101,7 @@ class CartModel extends Model {
     var shipPrice = getShipPrice();
     var discount = getDiscount();
 
-    var refOrder =
-        await Firestore.instance.collection('orders').add({
+    var refOrder = await Firestore.instance.collection('orders').add({
       'clientId': user.firebaseUser.uid,
       'products': products.map((cartProduct) => cartProduct.toMap()).toList(),
       'shipPrice': shipPrice,
