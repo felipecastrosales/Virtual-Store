@@ -51,7 +51,6 @@ class UserModel extends Model {
       @required String pass,
       @required VoidCallback onSuccess,
       @required VoidCallback onFail}) async {
-    
     isLoading = true;
     notifyListeners();
 
@@ -67,7 +66,7 @@ class UserModel extends Model {
       onFail();
       isLoading = false;
       notifyListeners();
-    });   
+    });
   }
 
   void signOut() async {
