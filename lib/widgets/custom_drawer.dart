@@ -6,14 +6,12 @@ import '../screens/login_screen.dart';
 import '../tiles/drawer_tile.dart';
 
 class CustomDrawer extends StatelessWidget {
-
   final PageController pageController;
 
   CustomDrawer(this.pageController);
 
   @override
   Widget build(BuildContext context) {
-
     Widget _buildDrawerBack() => Container(
           decoration: BoxDecoration(
             gradient: LinearGradient(colors: [
@@ -29,11 +27,11 @@ class CustomDrawer extends StatelessWidget {
         children: <Widget>[
           _buildDrawerBack(),
           ListView(
-            padding: EdgeInsets.only(left: 24, top: 16),
+            padding: EdgeInsets.only(left: 16, top: 16),
             children: <Widget>[
               Container(
                 margin: EdgeInsets.only(bottom: 8),
-                padding: EdgeInsets.fromLTRB(0, 12, 16, 0),
+                padding: EdgeInsets.fromLTRB(0, 16, 16, 0),
                 height: 170,
                 child: Stack(
                   children: <Widget>[
@@ -59,7 +57,7 @@ class CustomDrawer extends StatelessWidget {
                               children: <Widget>[
                                 Text(
                                   // ignore: lines_longer_than_80_chars
-                                  'Olá, ${!model.isLoggedIn() ? '' : model.userData['name']}',
+                                  'Olá, ${!model.isLoggedIn ? '' : model.userData['name']}',
                                   style: TextStyle(
                                     fontFamily: 'Roboto',
                                     fontSize: 24,
@@ -69,7 +67,7 @@ class CustomDrawer extends StatelessWidget {
                                 ),
                                 GestureDetector(
                                   child: Text(
-                                    !model.isLoggedIn()
+                                    !model.isLoggedIn
                                         ? 'Entre ou cadastre-se'
                                         : 'Sair',
                                     style: TextStyle(
@@ -80,7 +78,7 @@ class CustomDrawer extends StatelessWidget {
                                     ),
                                   ),
                                   onTap: () {
-                                    if (!model.isLoggedIn()) {
+                                    if (!model.isLoggedIn) {
                                       Navigator.of(context).push(
                                           MaterialPageRoute(
                                               builder: (context) =>
@@ -104,7 +102,8 @@ class CustomDrawer extends StatelessWidget {
               DrawerTile(Icons.list, 'Produtos', pageController, 1),
               DrawerTile(Icons.location_on, 'Loja', pageController, 2),
               // ignore: lines_longer_than_80_chars
-              DrawerTile(Icons.shopping_cart, 'Meus pedidos', pageController, 3),
+              DrawerTile(
+                  Icons.shopping_cart, 'Meus pedidos', pageController, 3),
             ],
           ),
         ],

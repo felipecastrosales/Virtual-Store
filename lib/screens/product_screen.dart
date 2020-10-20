@@ -126,7 +126,7 @@ class _ProductScreenState extends State<ProductScreen> {
                     color: Colors.amber,
                     onPressed: size != null
                         ? () {
-                            if (UserModel.of(context).isLoggedIn()) {
+                            if (UserModel.of(context).isLoggedIn) {
                               var cartProduct = CartProduct();
                               cartProduct.size = size;
                               cartProduct.quantity = 1;
@@ -145,7 +145,7 @@ class _ProductScreenState extends State<ProductScreen> {
                           }
                         : null,
                     child: Text(
-                      UserModel.of(context).isLoggedIn()
+                      UserModel.of(context).isLoggedIn
                           ? 'ADICIONAR AO CARRINHO'
                           : 'ENTRAR PARA COMPRAR',
                       style: TextStyle(
