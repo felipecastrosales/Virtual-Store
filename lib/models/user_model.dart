@@ -80,7 +80,7 @@ class UserModel extends Model {
     _auth.sendPasswordResetEmail(email: email);
   }
 
-  bool isLoggedIn() {
+  bool get isLoggedIn {
     return firebaseUser != null;
   }
 

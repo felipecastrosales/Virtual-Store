@@ -13,7 +13,7 @@ class CartModel extends Model {
   bool isLoading = false;
 
   CartModel(this.user) {
-    if (user.isLoggedIn()) {
+    if (user.isLoggedIn) {
       _loadCartItem();
     }
   }
