@@ -18,13 +18,12 @@ class CategoryTile extends StatelessWidget {
       title: Text(
         snapshot.data['title'],
         style: TextStyle(
-          fontFamily: 'Roboto',
           fontSize: 20,
           fontWeight: FontWeight.w600,
           color: Colors.grey[800],
         ),
       ),
-      trailing: Icon(Icons.keyboard_arrow_right),
+      trailing: Icon(Icons.keyboard_arrow_right_rounded, size: 28),
       onTap: () {
         Navigator.of(context).push(
             MaterialPageRoute(builder: (context) => CategoryScreen(snapshot)));

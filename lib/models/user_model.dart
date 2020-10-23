@@ -19,7 +19,6 @@ class UserModel extends Model {
   void addListener(VoidCallback listener) {
     super.addListener(listener);
     _loadCurrentUser();
-    print(_loadCurrentUser);
   }
 
   void signUp(
@@ -97,7 +96,6 @@ class UserModel extends Model {
     if (firebaseUser == null) {
       firebaseUser = await _auth.currentUser();
     }
-    print(firebaseUser);
     if (firebaseUser != null) {
       if (userData['name'] == null) {
         var docUser = await Firestore.instance

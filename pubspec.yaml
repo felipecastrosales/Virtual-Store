@@ -53,10 +53,10 @@ flutter:
   uses-material-design: true
 
   fonts:
-    - family: Roboto
-      fonts:
-        - asset: fonts/Roboto-Regular.ttf
-
     - family: Merriweather
       fonts:
         - asset: fonts/Merriweather-Regular.ttf
+
+    - family: Cookie
+      fonts:
+        - asset: fonts/Cookie-Regular.ttf

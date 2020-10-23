@@ -11,11 +11,8 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   final _emailController = TextEditingController();
-
   final _passController = TextEditingController();
-
   final _formKey = GlobalKey<FormState>();
-
   final _scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
@@ -26,15 +23,12 @@ class _LoginScreenState extends State<LoginScreen> {
           iconTheme: IconThemeData(color: Colors.white),
           backgroundColor: Colors.amber,
           centerTitle: true,
-          title: Text(
-            'Entrar',
-            style: TextStyle(
-              fontFamily: 'Merriweather',
-              fontSize: 22,
-              fontWeight: FontWeight.bold,
-              color: Colors.white,
-            ),
-          ),
+          title: Text('Entrar',
+              style: TextStyle(
+                  fontFamily: 'Merriweather',
+                  fontSize: 22,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white)),
           actions: <Widget>[
             FlatButton(
               child: Text(
@@ -100,10 +94,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         _scaffoldKey.currentState.showSnackBar(SnackBar(
                           content: Text(
                             'Insira seu e-mail para recuperar sua senha.',
-                            style: TextStyle(
-                              fontFamily: 'Roboto',
-                              fontSize: 16,
-                            ),
+                            style: TextStyle(fontSize: 16),
                           ),
                           backgroundColor: Colors.redAccent,
                           duration: Duration(seconds: 3),
@@ -113,10 +104,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         _scaffoldKey.currentState.showSnackBar(SnackBar(
                           content: Text(
                             'Confira seu email',
-                            style: TextStyle(
-                              fontFamily: 'Roboto',
-                              fontSize: 16,
-                            ),
+                            style: TextStyle(fontSize: 16),
                           ),
                           backgroundColor: Colors.amber,
                           duration: Duration(seconds: 3),
@@ -139,7 +127,6 @@ class _LoginScreenState extends State<LoginScreen> {
                     child: Text(
                       'ENTRAR',
                       style: TextStyle(
-                          fontFamily: 'Roboto',
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
                           color: Colors.white),
@@ -170,10 +157,7 @@ class _LoginScreenState extends State<LoginScreen> {
     _scaffoldKey.currentState.showSnackBar(SnackBar(
       content: Text(
         'Falha ao entrar, veja se seu email e senha estão corretas.',
-        style: TextStyle(
-          fontFamily: 'Roboto',
-          fontSize: 16,
-        ),
+        style: TextStyle(fontSize: 16),
       ),
       backgroundColor: Colors.red,
       duration: Duration(seconds: 3),

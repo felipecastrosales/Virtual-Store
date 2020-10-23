@@ -40,7 +40,6 @@ class CartTile extends StatelessWidget {
                   Text(
                     'Tamanho ${cartProduct.size}',
                     style: TextStyle(
-                      fontFamily: 'Roboto',
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
                       color: Colors.grey[600],
@@ -49,7 +48,6 @@ class CartTile extends StatelessWidget {
                   Text(
                     'R\$ ${cartProduct.productData.price.toStringAsFixed(2)}',
                     style: TextStyle(
-                      fontFamily: 'Roboto',
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
                       color: Colors.amber,

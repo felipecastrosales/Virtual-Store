@@ -66,8 +66,8 @@ class CartScreen extends StatelessWidget {
                   height: 16,
                 ),
                 Text(
-                  // ignore: lines_longer_than_80_chars
-                  'Faça o login ou cadastre-se \n para adicionar produtos \n ao seu carrinho',
+                  'Faça o login ou cadastre-se \n'
+                  'para adicionar produtos \n ao seu carrinho',
                   style: TextStyle(
                     fontFamily: 'Merriweather',
                     fontSize: 20,

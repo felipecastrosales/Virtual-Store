@@ -17,13 +17,14 @@ class MyApp extends StatelessWidget {
         return ScopedModel<CartModel>(
           model: CartModel(model),
           child: MaterialApp(
-              title: '@normaltda',
-              theme: ThemeData(
-                primarySwatch: Colors.amber,
-                primaryColor: Colors.amber,
-              ),
-              debugShowCheckedModeBanner: false,
-              home: HomeScreen()),
+            title: '@normaltda',
+            debugShowCheckedModeBanner: false,
+            home: HomeScreen(),
+            theme: ThemeData(
+              primarySwatch: Colors.amber,
+              primaryColor: Colors.amber,
+            ),
+          ),
         );
       }),
     );
