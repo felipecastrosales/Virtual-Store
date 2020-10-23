@@ -27,23 +27,24 @@ class CustomDrawer extends StatelessWidget {
         children: <Widget>[
           _buildDrawerBack(),
           ListView(
-            padding: EdgeInsets.only(left: 16, top: 16),
+            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 8),
             children: <Widget>[
               Container(
                 margin: EdgeInsets.only(bottom: 8),
-                padding: EdgeInsets.fromLTRB(0, 16, 16, 0),
-                height: 170,
+                padding: EdgeInsets.only(top: 20),
+                height: 160,
                 child: Stack(
                   children: <Widget>[
-                    Positioned(
-                      top: 10,
+                    Container(
+                      alignment: Alignment.topCenter,
+                      padding: EdgeInsets.only(top: 16),
                       child: Text(
-                        'Loja da \nNorma',
+                        'normaltda',
                         style: TextStyle(
-                          fontFamily: 'Merriweather',
-                          fontSize: 36,
+                          fontFamily: 'Cookie',
+                          fontSize: 60,
                           fontWeight: FontWeight.bold,
-                          color: Colors.black87,
+                          color: Colors.grey[900],
                         ),
                       ),
                     ),
@@ -52,7 +53,6 @@ class CustomDrawer extends StatelessWidget {
                         bottom: 0,
                         child: ScopedModelDescendant<UserModel>(
                           builder: (context, child, model) {
-                            print(model.userData);
                             return Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: <Widget>[
@@ -60,7 +60,6 @@ class CustomDrawer extends StatelessWidget {
                                   // ignore: lines_longer_than_80_chars
                                   'Olá, ${!model.isLoggedIn ? '' : model.userData['name']}',
                                   style: TextStyle(
-                                    fontFamily: 'Roboto',
                                     fontSize: 24,
                                     color: Colors.black,
                                     fontWeight: FontWeight.bold,
@@ -72,7 +71,6 @@ class CustomDrawer extends StatelessWidget {
                                         ? 'Entre ou cadastre-se'
                                         : 'Sair',
                                     style: TextStyle(
-                                      fontFamily: 'Roboto',
                                       color: Theme.of(context).primaryColor,
                                       fontSize: 20,
                                       fontWeight: FontWeight.bold,
@@ -102,7 +100,6 @@ class CustomDrawer extends StatelessWidget {
               DrawerTile(Icons.home, 'Início', pageController, 0),
               DrawerTile(Icons.list, 'Produtos', pageController, 1),
               DrawerTile(Icons.location_on, 'Loja', pageController, 2),
-              // ignore: lines_longer_than_80_chars
               DrawerTile(
                   Icons.shopping_cart, 'Meus pedidos', pageController, 3),
             ],

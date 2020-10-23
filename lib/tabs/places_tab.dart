@@ -14,8 +14,8 @@ class PlacesTab extends StatelessWidget {
           );
         } else {
           return ListView(
-            children:
-                snapshot.data.documents.map((doc) => PlaceTile(doc)).toList(),
+            children: snapshot.data.documents.map((doc) => 
+              PlaceTile(doc)).toList(),
           );
         }
       },

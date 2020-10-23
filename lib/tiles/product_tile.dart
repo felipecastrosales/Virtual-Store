@@ -45,7 +45,6 @@ class ProductTile extends StatelessWidget {
                           Text(
                             'R\$ ${product.price.toStringAsFixed(2)}',
                             style: TextStyle(
-                              fontFamily: 'Roboto',
                               fontSize: 16,
                               fontWeight: FontWeight.bold,
                               fontStyle: FontStyle.italic,

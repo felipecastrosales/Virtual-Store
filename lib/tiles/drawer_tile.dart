@@ -32,7 +32,6 @@ class DrawerTile extends StatelessWidget {
               Text(
                 text,
                 style: TextStyle(
-                  fontFamily: 'Roboto',
                   fontSize: 24,
                   fontWeight: FontWeight.bold,
                   color: controller.page.round() == page

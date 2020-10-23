@@ -10,7 +10,7 @@ class PlaceTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      margin: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+      margin: EdgeInsets.symmetric(horizontal: 8, vertical: 8),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
@@ -30,7 +30,7 @@ class PlaceTile extends StatelessWidget {
                   snapshot.data['title'],
                   style: TextStyle(
                     fontFamily: 'Merriweather',
-                    fontSize: 25,
+                    fontSize: 26,
                     fontWeight: FontWeight.bold,
                     color: Colors.amber,
                   ),
@@ -67,7 +67,7 @@ class PlaceTile extends StatelessWidget {
                   'Ver no Mapa',
                   style: TextStyle(
                     fontFamily: 'Merriweather',
-                    fontSize: 20,
+                    fontSize: 16,
                     fontWeight: FontWeight.bold,
                     color: Colors.amber,
                   ),
@@ -85,7 +85,7 @@ class PlaceTile extends StatelessWidget {
                   'Ligar',
                   style: TextStyle(
                     fontFamily: 'Merriweather',
-                    fontSize: 20,
+                    fontSize: 16,
                     fontWeight: FontWeight.bold,
                     color: Colors.amber,
                   ),

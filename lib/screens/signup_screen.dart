@@ -106,7 +106,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       child: Text(
                         'CRIAR CONTA',
                         style: TextStyle(
-                            fontFamily: 'Roboto',
                             fontSize: 20,
                             fontWeight: FontWeight.bold,
                             color: Colors.white),
@@ -119,7 +118,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             'email': _emailController.text,
                             'address': _addressController.text,
                           };
-
                           model.signUp(
                               userData: userData,
                               pass: _passController.text,
@@ -141,7 +139,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
       content: Text(
         'Você criou sua conta com sucesso!',
         style: TextStyle(
-          fontFamily: 'Roboto',
           fontSize: 16,
         ),
       ),
@@ -157,7 +154,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
       content: Text(
         'Falha ao criar usuário',
         style: TextStyle(
-          fontFamily: 'Roboto',
           fontSize: 16,
         ),
       ),

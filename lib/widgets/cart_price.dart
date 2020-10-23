@@ -49,7 +49,6 @@ class CartPrice extends StatelessWidget {
                     Text(
                       'R\$ ${price.toStringAsFixed(2)}',
                       style: TextStyle(
-                          fontFamily: 'Roboto',
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
                           color: Colors.amber
@@ -73,7 +72,6 @@ class CartPrice extends StatelessWidget {
                     Text(
                       'R\$ ${discount.toStringAsFixed(2)}',
                       style: TextStyle(
-                          fontFamily: 'Roboto',
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
                           color: Colors.amber
@@ -97,7 +95,6 @@ class CartPrice extends StatelessWidget {
                     Text(
                       'R\$ ${ship.toStringAsFixed(2)}',
                       style: TextStyle(
-                          fontFamily: 'Roboto',
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
                           color: Colors.amber
@@ -122,7 +119,6 @@ class CartPrice extends StatelessWidget {
                     Text(
                       'R\$ ${(price + ship - discount).toStringAsFixed(2)}',
                       style: TextStyle(
-                          fontFamily: 'Roboto',
                           fontSize: 24,
                           fontWeight: FontWeight.bold,
                           color: Colors.amber
@@ -136,7 +132,6 @@ class CartPrice extends StatelessWidget {
                   child: Text(
                       'COMPRAR',
                     style: TextStyle(
-                        fontFamily: 'Roboto',
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
                         color: Colors.white

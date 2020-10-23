@@ -9,7 +9,6 @@ import 'login_screen.dart';
 
 class ProductScreen extends StatefulWidget {
   final ProductData product;
-
   ProductScreen(this.product);
 
   @override
@@ -17,10 +16,8 @@ class ProductScreen extends StatefulWidget {
 }
 
 class _ProductScreenState extends State<ProductScreen> {
-  final ProductData product;
-
   String size;
-
+  final ProductData product;
   _ProductScreenState(this.product);
 
   @override
@@ -71,7 +68,6 @@ class _ProductScreenState extends State<ProductScreen> {
                 Text(
                   'R\$ ${product.price.toStringAsFixed(2)}',
                   style: TextStyle(
-                    fontFamily: 'Roboto',
                     fontSize: 24,
                     fontWeight: FontWeight.bold,
                     color: Colors.amber,
@@ -133,7 +129,6 @@ class _ProductScreenState extends State<ProductScreen> {
                               cartProduct.productId = product.id;
                               cartProduct.category = product.category;
                               cartProduct.productData = product;
-
                               CartModel.of(context).addCartItem(cartProduct);
 
                               Navigator.of(context).push(MaterialPageRoute(
@@ -149,16 +144,13 @@ class _ProductScreenState extends State<ProductScreen> {
                           ? 'ADICIONAR AO CARRINHO'
                           : 'ENTRAR PARA COMPRAR',
                       style: TextStyle(
-                          fontFamily: 'Roboto',
                           fontSize: 18,
                           fontWeight: FontWeight.bold,
                           color: Colors.white),
                     ),
                   ),
                 ),
-                SizedBox(
-                  height: 16,
-                ),
+                SizedBox(height: 16),
                 Text(
                   'Descrição:',
                   style: TextStyle(
@@ -170,7 +162,6 @@ class _ProductScreenState extends State<ProductScreen> {
                 Text(
                   product.description,
                   style: TextStyle(
-                      fontFamily: 'Roboto',
                       fontSize: 16,
                       fontWeight: FontWeight.w800,
                       color: Colors.grey[800]),
