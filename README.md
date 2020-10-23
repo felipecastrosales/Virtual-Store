@@ -26,10 +26,10 @@
    <p>
    
 - View the products available in Store 👀, with:
-    -  Purchase Option (can use a discount coupon for this) 💯,
-    -  Price,
-    -  Description,
-    -  Size.
+  -  Purchase Option (can use a discount coupon for this), 💯
+  -  Price,
+  -  Description,
+  -  Size.
 
 - With the products inside the cart: 🛒 
   - Create,
@@ -43,11 +43,13 @@
   - Delivery. 
 🚚 
 
-- Register and Login in app 🔒,
+- Register and Login in app, 🔒
 
 - See the Location 📌 and Contact 📞 of the Physical Store by going straight to the location on Google Maps and option to calling option.
   
-- Navigate in different guides,
+- A beautiful home page with photos of customers using the store's products, 👌
+ 
+- Navigate in different guides, ⛵
 
 - Among others possibilities, which will be implemented in the future, with new updates and features! 💥
    
