@@ -8,7 +8,6 @@ class CartProduct {
   String size;
   int quantity;
   ProductData productData;
-
   CartProduct();
 
   CartProduct.fromDocument(DocumentSnapshot document) {

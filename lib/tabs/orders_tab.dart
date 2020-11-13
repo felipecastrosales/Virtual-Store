@@ -7,7 +7,6 @@ import '../tiles/order_tile.dart';
 class OrdersTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-
     if (UserModel.of(context).isLoggedIn) {
       var uid = UserModel.of(context).firebaseUser.uid;
       return FutureBuilder<QuerySnapshot>(
@@ -56,7 +55,7 @@ class OrdersTab extends StatelessWidget {
               color: Theme.of(context).primaryColor,
               onPressed: () {
                 Navigator.of(context).push(
-                    MaterialPageRoute(builder: (context) => LoginScreen()));
+                  MaterialPageRoute(builder: (context) => LoginScreen()));
               },
             )
           ],

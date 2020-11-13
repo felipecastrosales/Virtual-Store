@@ -28,21 +28,22 @@ class CartScreen extends StatelessWidget {
         ),
         actions: <Widget>[
           Container(
-              alignment: Alignment.center,
-              padding: EdgeInsets.only(right: 8),
-              child: ScopedModelDescendant<CartModel>(
-                builder: (context, child, model) {
-                  var quantityproducts = model.products.length;
-                  return Text(
-                    '${quantityproducts ?? 0} '
-                    '${quantityproducts == 1 ? 'ITEM' : 'ITENS'}',
-                    style: TextStyle(
-                        fontFamily: 'Merriweather',
-                        fontSize: 18,
-                        color: Colors.white),
-                  );
-                },
-              ))
+            alignment: Alignment.center,
+            padding: EdgeInsets.only(right: 8),
+            child: ScopedModelDescendant<CartModel>(
+              builder: (context, child, model) {
+                var quantityproducts = model.products.length;
+                return Text(
+                  '${quantityproducts ?? 0} '
+                  '${quantityproducts == 1 ? 'ITEM' : 'ITENS'}',
+                  style: TextStyle(
+                    fontFamily: 'Merriweather',
+                    fontSize: 18,
+                    color: Colors.white),
+                );
+              },
+            )
+          )
         ],
       ),
       body: ScopedModelDescendant<CartModel>(builder: (context, child, model) {
@@ -62,9 +63,7 @@ class CartScreen extends StatelessWidget {
                   color: Colors.amber,
                   size: 100,
                 ),
-                SizedBox(
-                  height: 16,
-                ),
+                SizedBox(height: 16),
                 Text(
                   'Faça o login ou cadastre-se \n'
                   'para adicionar produtos \n ao seu carrinho',
@@ -76,9 +75,7 @@ class CartScreen extends StatelessWidget {
                   ),
                   textAlign: TextAlign.center,
                 ),
-                SizedBox(
-                  height: 16,
-                ),
+                SizedBox(height: 16),
                 RaisedButton(
                   color: Colors.amber,
                   child: Text(
@@ -93,7 +90,7 @@ class CartScreen extends StatelessWidget {
                   ),
                   onPressed: () {
                     Navigator.of(context).push(
-                        MaterialPageRoute(builder: (context) => LoginScreen()));
+                      MaterialPageRoute(builder: (context) => LoginScreen()));
                   },
                 ),
               ],
@@ -126,7 +123,7 @@ class CartScreen extends StatelessWidget {
                 var orderId = await model.finishOrder();
                 if (orderId != null) {
                   Navigator.of(context).pushReplacement(MaterialPageRoute(
-                      builder: (context) => OrderScreen(orderId)));
+                    builder: (context) => OrderScreen(orderId)));
                 }
               }),
             ],

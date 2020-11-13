@@ -6,7 +6,6 @@ import '../models/cart_model.dart';
 
 class CartTile extends StatelessWidget {
   final CartProduct cartProduct;
-
   CartTile(this.cartProduct);
 
   @override
@@ -59,10 +58,10 @@ class CartTile extends StatelessWidget {
                       IconButton(
                         icon: Icon(Icons.remove, color: Colors.amber),
                         onPressed: cartProduct.quantity > 1
-                            ? () {
-                                CartModel.of(context).decProduct(cartProduct);
-                              }
-                            : null,
+                          ? () {
+                              CartModel.of(context).decProduct(cartProduct);
+                            }
+                          : null,
                       ),
                       Text(cartProduct.quantity.toString()),
                       IconButton(
@@ -97,29 +96,29 @@ class CartTile extends StatelessWidget {
     }
 
     return Card(
-        margin: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-        child: cartProduct.productData == null
-            ? FutureBuilder<DocumentSnapshot>(
-                future: Firestore.instance
-                    .collection('products')
-                    .document(cartProduct.category)
-                    .collection('items')
-                    .document(cartProduct.productId)
-                    .get(),
-                builder: (context, snapshot) {
-                  if (snapshot.hasData) {
-                    cartProduct.productData =
-                        ProductData.fromDocument(snapshot.data);
-                    return _buildContent();
-                  } else {
-                    return Container(
-                      height: 100,
-                      child: CircularProgressIndicator(),
-                      alignment: Alignment.center,
-                    );
-                  }
-                },
-              )
-            : _buildContent());
+      margin: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+      child: cartProduct.productData == null
+        ? FutureBuilder<DocumentSnapshot>(
+            future: Firestore.instance
+                .collection('products')
+                .document(cartProduct.category)
+                .collection('items')
+                .document(cartProduct.productId)
+                .get(),
+            builder: (context, snapshot) {
+              if (snapshot.hasData) {
+                cartProduct.productData =
+                    ProductData.fromDocument(snapshot.data);
+                return _buildContent();
+              } else {
+                return Container(
+                  height: 100,
+                  child: CircularProgressIndicator(),
+                  alignment: Alignment.center,
+                );
+              }
+            },
+          )
+        : _buildContent());
   }
 }

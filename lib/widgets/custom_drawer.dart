@@ -7,20 +7,20 @@ import '../tiles/drawer_tile.dart';
 
 class CustomDrawer extends StatelessWidget {
   final PageController pageController;
-
   CustomDrawer(this.pageController);
 
   @override
   Widget build(BuildContext context) {
     Widget _buildDrawerBack() => Container(
-          decoration: BoxDecoration(
-            gradient: LinearGradient(colors: [
-              Colors.amber[100],
-              Colors.amber[50],
-              Colors.white,
-            ], begin: Alignment.topCenter, end: Alignment.bottomCenter),
-          ),
-        );
+      decoration: BoxDecoration(
+        gradient: LinearGradient(colors: [
+          Colors.amber[100],
+          Colors.amber[50],
+          Colors.white,
+        ], 
+        begin: Alignment.topCenter, end: Alignment.bottomCenter),
+      ),
+    );
 
     return Drawer(
       child: Stack(
@@ -49,59 +49,55 @@ class CustomDrawer extends StatelessWidget {
                       ),
                     ),
                     Positioned(
-                        left: 0,
-                        bottom: 0,
-                        child: ScopedModelDescendant<UserModel>(
-                          builder: (context, child, model) {
-                            return Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: <Widget>[
-                                Text(
-                                  // ignore: lines_longer_than_80_chars
-                                  'Olá, ${!model.isLoggedIn ? '' : model.userData['name']}',
+                      left: 0,
+                      bottom: 0,
+                      child: ScopedModelDescendant<UserModel>(
+                        builder: (context, child, model) {
+                          return Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              Text(
+                                // ignore: lines_longer_than_80_chars
+                                'Olá, ${!model.isLoggedIn ? '' : model.userData['name']}',
+                                style: TextStyle(
+                                  fontSize: 24,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              GestureDetector(
+                                child: Text(
+                                  !model.isLoggedIn
+                                    ? 'Entre ou cadastre-se'
+                                    : 'Sair',
                                   style: TextStyle(
-                                    fontSize: 24,
-                                    color: Colors.black,
+                                    color: Theme.of(context).primaryColor,
+                                    fontSize: 20,
                                     fontWeight: FontWeight.bold,
                                   ),
                                 ),
-                                GestureDetector(
-                                  child: Text(
-                                    !model.isLoggedIn
-                                        ? 'Entre ou cadastre-se'
-                                        : 'Sair',
-                                    style: TextStyle(
-                                      color: Theme.of(context).primaryColor,
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
-                                  onTap: () {
-                                    if (!model.isLoggedIn) {
-                                      Navigator.of(context).push(
-                                          MaterialPageRoute(
-                                              builder: (context) =>
-                                                  LoginScreen()));
-                                    } else {
-                                      model.signOut();
-                                    }
-                                  },
-                                )
-                              ],
-                            );
-                          },
-                        )),
+                                onTap: () {
+                                  if (!model.isLoggedIn) {
+                                    Navigator.of(context).push(
+                                      MaterialPageRoute(builder: (context) =>
+                                        LoginScreen()));
+                                  } else {
+                                    model.signOut();
+                                  }
+                                },
+                              )
+                            ],
+                          );
+                        },
+                      )),
                   ],
                 ),
               ),
-              Divider(
-                color: Colors.amber,
-              ),
+              Divider(color: Colors.amber),
               DrawerTile(Icons.home, 'Início', pageController, 0),
               DrawerTile(Icons.list, 'Produtos', pageController, 1),
               DrawerTile(Icons.location_on, 'Loja', pageController, 2),
-              DrawerTile(
-                  Icons.shopping_cart, 'Meus pedidos', pageController, 3),
+              DrawerTile(Icons.shopping_cart, 'Meus pedidos', pageController,3),
             ],
           ),
         ],

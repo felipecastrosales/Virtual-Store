@@ -4,9 +4,7 @@ import 'models/cart_model.dart';
 import 'models/user_model.dart';
 import 'screens/home_screen.dart';
 
-void main() {
-  runApp(MyApp());
-}
+void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   @override

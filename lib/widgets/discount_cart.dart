@@ -26,7 +26,8 @@ class DiscountCart extends StatelessWidget {
             padding: EdgeInsets.all(8),
             child: TextFormField(
               decoration: InputDecoration(
-                  border: OutlineInputBorder(), hintText: 'Digite o seu cupom'),
+                border: OutlineInputBorder(), 
+                hintText: 'Digite o seu cupom'),
               initialValue: CartModel.of(context).couponCode ?? '',
               onFieldSubmitted: (text) {
                 Firestore.instance
@@ -36,14 +37,13 @@ class DiscountCart extends StatelessWidget {
                     .then((docSnap) {
                   if (docSnap.data != null) {
                     CartModel.of(context)
-                        .setCoupon(text, docSnap.data['percent']);
+                      .setCoupon(text, docSnap.data['percent']);
                     Scaffold.of(context).showSnackBar(SnackBar(
                       duration: Duration(seconds: 5),
                       backgroundColor: Colors.amber,
                       content: Text(
                         'Seu desconto de '
-                        '${docSnap.data['percent']}%'
-                        'foi aplicado.',
+                        '${docSnap.data['percent']}% foi aplicado.',
                       ),
                     ));
                   } else {

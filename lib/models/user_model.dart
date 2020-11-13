@@ -6,10 +6,8 @@ import 'package:scoped_model/scoped_model.dart';
 
 class UserModel extends Model {
   final FirebaseAuth _auth = FirebaseAuth.instance;
-
   FirebaseUser firebaseUser;
   Map<String, dynamic> userData = {};
-
   bool isLoading = false;
 
   static UserModel of(BuildContext context) =>
@@ -21,20 +19,19 @@ class UserModel extends Model {
     _loadCurrentUser();
   }
 
-  void signUp(
-      {@required Map<String, dynamic> userData,
-      @required String pass,
-      @required VoidCallback onSuccess,
-      @required VoidCallback onFail}) {
+  void signUp({
+    @required Map<String, dynamic> userData,
+    @required String pass,
+    @required VoidCallback onSuccess,
+    @required VoidCallback onFail
+  }) {
     isLoading = true;
     notifyListeners();
-
     _auth
         .createUserWithEmailAndPassword(
-            email: userData['email'], password: pass)
+          email: userData['email'], password: pass)
         .then((user) async {
       firebaseUser = user;
-
       await _saveUserData(userData);
       onSuccess();
       isLoading = false;
@@ -46,14 +43,14 @@ class UserModel extends Model {
     });
   }
 
-  void signIn(
-      {@required String email,
-      @required String pass,
-      @required VoidCallback onSuccess,
-      @required VoidCallback onFail}) async {
+  void signIn({
+    @required String email,
+    @required String pass,
+    @required VoidCallback onSuccess,
+    @required VoidCallback onFail
+  }) async {
     isLoading = true;
     notifyListeners();
-
     _auth
         .signInWithEmailAndPassword(email: email, password: pass)
         .then((user) async {
