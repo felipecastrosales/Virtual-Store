@@ -3,9 +3,7 @@ import 'package:scoped_model/scoped_model.dart';
 import '../models/cart_model.dart';
 
 class CartPrice extends StatelessWidget {
-
   final VoidCallback buy;
-
   CartPrice(this.buy);
 
   @override
@@ -49,9 +47,9 @@ class CartPrice extends StatelessWidget {
                     Text(
                       'R\$ ${price.toStringAsFixed(2)}',
                       style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.amber
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.amber
                       ),
                     ),
                   ],
@@ -63,18 +61,18 @@ class CartPrice extends StatelessWidget {
                     Text(
                       'Desconto',
                       style: TextStyle(
-                          fontFamily: 'Merriweather',
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.grey[800]
+                        fontFamily: 'Merriweather',
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.grey[800]
                       ),
                     ),
                     Text(
                       'R\$ ${discount.toStringAsFixed(2)}',
                       style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.amber
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.amber
                       ),
                     ),
                   ],
@@ -86,18 +84,18 @@ class CartPrice extends StatelessWidget {
                     Text(
                       'Frete',
                       style: TextStyle(
-                          fontFamily: 'Merriweather',
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.grey[800]
+                        fontFamily: 'Merriweather',
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.grey[800]
                       ),
                     ),
                     Text(
                       'R\$ ${ship.toStringAsFixed(2)}',
                       style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.amber
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.amber
                       ),
                     ),
                   ],
@@ -110,18 +108,18 @@ class CartPrice extends StatelessWidget {
                     Text(
                       'Total',
                       style: TextStyle(
-                          fontFamily: 'Merriweather',
-                          fontSize: 24,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.grey[800]
+                        fontFamily: 'Merriweather',
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.grey[800]
                       ),
                     ),
                     Text(
                       'R\$ ${(price + ship - discount).toStringAsFixed(2)}',
                       style: TextStyle(
-                          fontSize: 24,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.amber
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.amber
                       ),
                     ),
                   ],
@@ -130,11 +128,11 @@ class CartPrice extends StatelessWidget {
                 RaisedButton(
                   color: Colors.amber,
                   child: Text(
-                      'COMPRAR',
+                    'COMPRAR',
                     style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white
                     ),
                   ),
                   onPressed: buy,

@@ -10,10 +10,11 @@ class HomeScreen extends StatelessWidget {
   final _pageController = PageController();
 
   final kLabelStyle = TextStyle(
-      color: Colors.white,
-      fontWeight: FontWeight.bold,
-      fontSize: 22,
-      fontFamily: 'Merriweather');
+    color: Colors.white,
+    fontWeight: FontWeight.bold,
+    fontSize: 22,
+    fontFamily: 'Merriweather'
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -31,10 +32,7 @@ class HomeScreen extends StatelessWidget {
             centerTitle: true,
             backgroundColor: Colors.amber,
             iconTheme: IconThemeData(color: Colors.white),
-            title: Text(
-              'Produtos',
-              style: kLabelStyle,
-            ),
+            title: Text('Produtos', style: kLabelStyle),
           ),
           drawer: CustomDrawer(_pageController),
           body: ProductsTab(),
@@ -44,10 +42,7 @@ class HomeScreen extends StatelessWidget {
             centerTitle: true,
             backgroundColor: Colors.amber,
             iconTheme: IconThemeData(color: Colors.white),
-            title: Text(
-              'Lojas',
-              style: kLabelStyle,
-            ),
+            title: Text('Lojas', style: kLabelStyle),
           ),
           body: PlacesTab(),
           drawer: CustomDrawer(_pageController),
@@ -57,10 +52,7 @@ class HomeScreen extends StatelessWidget {
             centerTitle: true,
             backgroundColor: Colors.amber,
             iconTheme: IconThemeData(color: Colors.white),
-            title: Text(
-              'Meus pedidos',
-              style: kLabelStyle,
-            ),
+            title: Text('Meus pedidos', style: kLabelStyle),
           ),
           body: OrdersTab(),
           drawer: CustomDrawer(_pageController),

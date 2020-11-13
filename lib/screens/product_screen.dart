@@ -77,9 +77,9 @@ class _ProductScreenState extends State<ProductScreen> {
                 Text(
                   'Tamanhos disponíveis',
                   style: TextStyle(
-                      fontFamily: 'Merriweather',
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold),
+                    fontFamily: 'Merriweather',
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold),
                 ),
                 SizedBox(
                   height: 32,
@@ -91,28 +91,27 @@ class _ProductScreenState extends State<ProductScreen> {
                       mainAxisSpacing: 6,
                       childAspectRatio: 0.6,
                     ),
-                    children: product.sizes
-                        .map((clothingSize) => GestureDetector(
-                              onTap: () {
-                                setState(() {
-                                  size = clothingSize;
-                                });
-                              },
-                              child: Container(
-                                decoration: BoxDecoration(
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(50)),
-                                  border: Border.all(
-                                      color: clothingSize == size
-                                          ? Colors.amber
-                                          : Colors.grey[600],
-                                      width: 3),
-                                ),
-                                alignment: Alignment.center,
-                                child: Text(clothingSize),
-                              ),
-                            ))
-                        .toList(),
+                    children: product.sizes.map((clothingSize) => 
+                      GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            size = clothingSize;
+                          });
+                        },
+                        child: Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.all(Radius.circular(50)),
+                            border: Border.all(
+                              color: clothingSize == size
+                                ? Colors.amber
+                                : Colors.grey[600],
+                              width: 3),
+                          ),
+                          alignment: Alignment.center,
+                          child: Text(clothingSize),
+                        ),
+                      )
+                    ).toList(),
                   ),
                 ),
                 SizedBox(height: 16),
@@ -132,21 +131,21 @@ class _ProductScreenState extends State<ProductScreen> {
                               CartModel.of(context).addCartItem(cartProduct);
 
                               Navigator.of(context).push(MaterialPageRoute(
-                                  builder: (context) => CartScreen()));
+                                builder: (context) => CartScreen()));
                             } else {
                               Navigator.of(context).push(MaterialPageRoute(
-                                  builder: (context) => LoginScreen()));
+                                builder: (context) => LoginScreen()));
                             }
                           }
                         : null,
                     child: Text(
                       UserModel.of(context).isLoggedIn
-                          ? 'ADICIONAR AO CARRINHO'
-                          : 'ENTRAR PARA COMPRAR',
+                        ? 'ADICIONAR AO CARRINHO'
+                        : 'ENTRAR PARA COMPRAR',
                       style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white),
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white),
                     ),
                   ),
                 ),
@@ -154,17 +153,17 @@ class _ProductScreenState extends State<ProductScreen> {
                 Text(
                   'Descrição:',
                   style: TextStyle(
-                      fontFamily: 'Merriweather',
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold),
+                    fontFamily: 'Merriweather',
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold),
                 ),
                 SizedBox(height: 8),
                 Text(
                   product.description,
                   style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w800,
-                      color: Colors.grey[800]),
+                    fontSize: 16,
+                    fontWeight: FontWeight.w800,
+                    color: Colors.grey[800]),
                 ),
               ],
             ),

@@ -7,13 +7,14 @@ class HomeTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Widget _buildBodyBack() => Container(
-          decoration: BoxDecoration(
-            gradient: LinearGradient(colors: [
-              Colors.amber,
-              Colors.yellow[100],
-            ], begin: Alignment.topCenter, end: Alignment.bottomCenter),
-          ),
-        );
+      decoration: BoxDecoration(
+        gradient: LinearGradient(colors: [
+          Colors.amber,
+          Colors.yellow[100],
+        ],
+        begin: Alignment.topCenter, end: Alignment.bottomCenter),
+      ),
+    );
 
     return Stack(
       children: <Widget>[
@@ -58,8 +59,8 @@ class HomeTab extends StatelessWidget {
                 } else {
                   return SliverStaggeredGrid.count(
                     crossAxisCount: 2,
-                    mainAxisSpacing: 4.0,
-                    crossAxisSpacing: 4.0,
+                    mainAxisSpacing: 4,
+                    crossAxisSpacing: 4,
                     staggeredTiles: snapshot.data.documents.map((doc) {
                       return StaggeredTile.count(doc.data['x'], doc.data['y']);
                     }).toList(),

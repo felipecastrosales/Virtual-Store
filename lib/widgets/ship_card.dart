@@ -30,7 +30,7 @@ class ShipCard extends StatelessWidget {
             ),
           )
         ],
-        ),
+      ),
     );
   }
 }

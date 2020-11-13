@@ -18,135 +18,134 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        key: _scaffoldKey,
-        appBar: AppBar(
-          iconTheme: IconThemeData(color: Colors.white),
-          backgroundColor: Colors.amber,
-          centerTitle: true,
-          title: Text('Entrar',
+      key: _scaffoldKey,
+      appBar: AppBar(
+        iconTheme: IconThemeData(color: Colors.white),
+        backgroundColor: Colors.amber,
+        centerTitle: true,
+        title: Text(
+          'Entrar',
+          style: TextStyle(
+            fontFamily: 'Merriweather',
+            fontSize: 22,
+            fontWeight: FontWeight.bold,
+            color: Colors.white)
+        ),
+        actions: <Widget>[
+          FlatButton(
+            child: Text(
+              'CRIAR CONTA',
               style: TextStyle(
-                  fontFamily: 'Merriweather',
-                  fontSize: 22,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white)),
-          actions: <Widget>[
-            FlatButton(
-              child: Text(
-                'CRIAR CONTA',
-                style: TextStyle(
-                  fontFamily: 'Merriweather',
-                  fontSize: 18,
+                fontFamily: 'Merriweather',
+                fontSize: 18,
+              ),
+            ),
+            textColor: Colors.white,
+            onPressed: () {
+              Navigator.of(context).pushReplacement(
+                MaterialPageRoute(builder: (context) => SignUpScreen()));
+            },
+          )
+          ],
+      ),
+      body: ScopedModelDescendant<UserModel>(builder: (context, child, model){
+        if (model.isLoading) {
+          return Center(
+            child: CircularProgressIndicator(),
+          );
+        }
+        return Form(
+          key: _formKey,
+          child: ListView(
+            padding: EdgeInsets.all(24),
+            children: <Widget>[
+              TextFormField(
+                controller: _emailController,
+                decoration: InputDecoration(hintText: 'E-mail'),
+                keyboardType: TextInputType.emailAddress,
+                validator: (text) {
+                  if (text.isEmpty || !text.contains('@')) {
+                    return 'E-mail inválido';
+                  } else {
+                    return null;
+                  }
+                }
+              ),
+              SizedBox(height: 16),
+              TextFormField(
+                controller: _passController,
+                obscureText: true,
+                decoration: InputDecoration(hintText: 'Senha'),
+                validator: (text) {
+                  if (text.isEmpty || text.length < 8) {
+                    return 'A senha deve ter pelo menos 8 caracteres';
+                } else {
+                  return null;
+                  }
+                }),
+              Align(
+                alignment: Alignment.centerRight,
+                child: FlatButton(
+                  padding: EdgeInsets.zero,
+                  onPressed: () {
+                    if (_emailController.text.isEmpty) {
+                      _scaffoldKey.currentState.showSnackBar(SnackBar(
+                        content: Text(
+                          'Insira seu e-mail para recuperar sua senha.',
+                          style: TextStyle(fontSize: 16),
+                        ),
+                        backgroundColor: Colors.redAccent,
+                        duration: Duration(seconds: 3),
+                      ));
+                    } else {
+                      model.recoverPass(_emailController.text);
+                      _scaffoldKey.currentState.showSnackBar(SnackBar(
+                        content: Text(
+                          'Confira seu email',
+                          style: TextStyle(fontSize: 16),
+                        ),
+                        backgroundColor: Colors.amber,
+                        duration: Duration(seconds: 3),
+                      ));
+                    }
+                  },
+                  child: Text(
+                    'Esqueci minha senha',
+                      style: TextStyle(
+                        fontFamily: 'Merriweather',
+                        fontSize: 15,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.amber),
+                  ),
                 ),
               ),
-              textColor: Colors.white,
-              onPressed: () {
-                Navigator.of(context).pushReplacement(
-                    MaterialPageRoute(builder: (context) => SignUpScreen()));
-              },
-            )
-          ],
-        ),
-        body:
-            ScopedModelDescendant<UserModel>(builder: (context, child, model) {
-          if (model.isLoading) {
-            return Center(
-              child: CircularProgressIndicator(),
-            );
-          }
-          return Form(
-            key: _formKey,
-            child: ListView(
-              padding: EdgeInsets.all(24),
-              children: <Widget>[
-                TextFormField(
-                    controller: _emailController,
-                    decoration: InputDecoration(
-                      hintText: 'E-mail',
-                    ),
-                    keyboardType: TextInputType.emailAddress,
-                    validator: (text) {
-                      if (text.isEmpty || !text.contains('@')) {
-                        return 'E-mail inválido';
-                      } else {
-                        return null;
-                      }
-                    }),
-                SizedBox(height: 16),
-                TextFormField(
-                    controller: _passController,
-                    obscureText: true,
-                    decoration: InputDecoration(
-                      hintText: 'Senha',
-                    ),
-                    validator: (text) {
-                      if (text.isEmpty || text.length < 8) {
-                        return 'A senha deve ter pelo menos 8 caracteres';
-                      } else {
-                        return null;
-                      }
-                    }),
-                Align(
-                  alignment: Alignment.centerRight,
-                  child: FlatButton(
-                    padding: EdgeInsets.zero,
-                    onPressed: () {
-                      if (_emailController.text.isEmpty) {
-                        _scaffoldKey.currentState.showSnackBar(SnackBar(
-                          content: Text(
-                            'Insira seu e-mail para recuperar sua senha.',
-                            style: TextStyle(fontSize: 16),
-                          ),
-                          backgroundColor: Colors.redAccent,
-                          duration: Duration(seconds: 3),
-                        ));
-                      } else {
-                        model.recoverPass(_emailController.text);
-                        _scaffoldKey.currentState.showSnackBar(SnackBar(
-                          content: Text(
-                            'Confira seu email',
-                            style: TextStyle(fontSize: 16),
-                          ),
-                          backgroundColor: Colors.amber,
-                          duration: Duration(seconds: 3),
-                        ));
-                      }
-                    },
-                    child: Text(
-                      'Esqueci minha senha',
-                      style: TextStyle(
-                          fontFamily: 'Merriweather',
-                          fontSize: 15,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.amber),
-                    ),
+              SizedBox(
+                height: 50,
+                child: RaisedButton(
+                  child: Text(
+                    'ENTRAR',
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white),
                   ),
+                  color: Colors.amber,
+                  onPressed: () {
+                    if (_formKey.currentState.validate()) {}
+                    model.signIn(
+                      email: _emailController.text,
+                      pass: _passController.text,
+                      onSuccess: _onSuccess,
+                      onFail: _onFail,
+                    );
+                  },
                 ),
-                SizedBox(
-                  height: 50,
-                  child: RaisedButton(
-                    child: Text(
-                      'ENTRAR',
-                      style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white),
-                    ),
-                    color: Colors.amber,
-                    onPressed: () {
-                      if (_formKey.currentState.validate()) {}
-                      model.signIn(
-                        email: _emailController.text,
-                        pass: _passController.text,
-                        onSuccess: _onSuccess,
-                        onFail: _onFail,
-                      );
-                    },
-                  ),
-                ),
-              ],
-            ),
-          );
-        }));
+              ),
+            ],
+          ),
+        );
+      })
+    );
   }
 
   void _onSuccess() {

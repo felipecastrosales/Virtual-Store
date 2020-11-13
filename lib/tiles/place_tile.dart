@@ -4,7 +4,6 @@ import 'package:url_launcher/url_launcher.dart';
 
 class PlaceTile extends StatelessWidget {
   final DocumentSnapshot snapshot;
-
   PlaceTile(this.snapshot);
 
   @override
@@ -76,8 +75,8 @@ class PlaceTile extends StatelessWidget {
                 padding: EdgeInsets.zero,
                 onPressed: () {
                   launch(
-                      'https://www.google.com/maps/search/?api=1&query=${snapshot.data['lat']},'
-                      '${snapshot.data['long']}');
+                    'https://www.google.com/maps/search/?api=1&query=${snapshot.data['lat']},'
+                    '${snapshot.data['long']}');
                 },
               ),
               FlatButton(

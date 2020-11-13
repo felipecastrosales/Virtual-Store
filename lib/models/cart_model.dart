@@ -23,7 +23,6 @@ class CartModel extends Model {
 
   void addCartItem(CartProduct cartProduct) {
     products.add(cartProduct);
-
     Firestore.instance
         .collection('users')
         .document(user.firebaseUser.uid)
@@ -100,7 +99,6 @@ class CartModel extends Model {
     var productsPrice = getProductPrice();
     var shipPrice = getShipPrice();
     var discount = getDiscount();
-
     var refOrder = await Firestore.instance.collection('orders').add({
       'clientId': user.firebaseUser.uid,
       'products': products.map((cartProduct) => cartProduct.toMap()).toList(),
@@ -121,11 +119,9 @@ class CartModel extends Model {
         .document(user.firebaseUser.uid)
         .collection('cart')
         .getDocuments();
-
     for (var doc in query.documents) {
       doc.reference.delete();
     }
-
     products.clear();
     couponCode = null;
     discountPercentage = 0;
@@ -140,10 +136,8 @@ class CartModel extends Model {
         .document(user.firebaseUser.uid)
         .collection('cart')
         .getDocuments();
-
-    products =
-        query.documents.map((doc) => CartProduct.fromDocument(doc)).toList();
-
+    products = query.documents.map((doc) => 
+      CartProduct.fromDocument(doc)).toList();
     notifyListeners();
   }
 }

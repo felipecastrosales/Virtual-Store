@@ -5,7 +5,6 @@ class DrawerTile extends StatelessWidget {
   final String text;
   final PageController controller;
   final int page;
-
   DrawerTile(this.icon, this.text, this.controller, this.page);
 
   @override
@@ -25,8 +24,8 @@ class DrawerTile extends StatelessWidget {
                 icon,
                 size: 32,
                 color: controller.page.round() == page
-                    ? Colors.grey[800]
-                    : Colors.amber,
+                  ? Colors.grey[800]
+                  : Colors.amber,
               ),
               SizedBox(width: 24),
               Text(
@@ -35,8 +34,8 @@ class DrawerTile extends StatelessWidget {
                   fontSize: 24,
                   fontWeight: FontWeight.bold,
                   color: controller.page.round() == page
-                      ? Colors.grey[800]
-                      : Colors.amber,
+                    ? Colors.grey[800]
+                    : Colors.amber,
                 ),
               )
             ],
