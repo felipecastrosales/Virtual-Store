@@ -44,13 +44,9 @@
 🚚 
 
 - Register and Login in app, 🔒
-
-- See the Location 📌 and Contact 📞 of the Physical Store by going straight to the location on Google Maps and option to calling option.
-  
+- See the Location 📌 and Contact 📞 of the Physical Store by going straight to the location on Google Maps and option to calling option.  
 - A beautiful home page with photos of customers using the store's products, 👌
- 
 - Navigate in different guides, ⛵
-
 - Among others possibilities, which will be implemented in the future, with new updates and features! 💥
    
    </p>

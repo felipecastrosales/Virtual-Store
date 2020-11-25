@@ -96,7 +96,7 @@ class CartScreen extends StatelessWidget {
               ],
             ),
           );
-        } else if (model.products == null || model.products.length == 0) {
+        } else if (model.products == null || model.products.isEmpty) {
           return Center(
             child: Text(
               'Você não possui nenhum \n produto no carrinho.',
