@@ -35,6 +35,7 @@ dependencies:
   scoped_model: ^1.0.1
   firebase_auth: ^0.11.1+12
   url_launcher: ^5.1.1
+  flutter_launcher_icons: ^0.8.1 
 
 dev_dependencies:
   effective_dart: ^1.2.0
@@ -55,8 +56,13 @@ flutter:
   fonts:
     - family: Merriweather
       fonts:
-        - asset: fonts/Merriweather-Regular.ttf
+        - asset: assets/fonts/Merriweather-Regular.ttf
 
     - family: Cookie
       fonts:
-        - asset: fonts/Cookie-Regular.ttf
+        - asset: assets/fonts/Cookie-Regular.ttf
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/icons/logo.png"
