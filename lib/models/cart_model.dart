@@ -93,7 +93,7 @@ class CartModel extends Model {
   }
 
   Future<String> finishOrder() async {
-    if (products.length == 0) return null;
+    if (products.isEmpty) return null;
     isLoading = true;
     notifyListeners();
     var productsPrice = getProductPrice();
