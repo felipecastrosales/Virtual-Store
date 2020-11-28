@@ -4,6 +4,23 @@
 
 <h1 align="center">Virtual Store</h1>
 
+   <h2 align="center">Topics 📋</h2>
+
+   <p>
+   
+   - [About 📖](#about-)
+   - [Preview 📱](#preview-)
+   - [Functionalities 🛠️](#functionalities-%EF%B8%8F)
+   - [Challenges and Learnings along the way 🤯](#challenges-and-learnings-along-the-way-)
+   - [How to Use 🤔](#how-to-use-)
+   - [How to Contribute 💪](#how-to-contribute-)
+   - [License 📝](#license-)
+
+   </p>
+
+---
+
+
 <h2 align="center">About 📖</h2>
    
 <p align="center">
@@ -18,7 +35,14 @@
 
 <h2 align="center">Preview 📱</h2>
 
-   > * In production...  
+   <p align="center">
+      <img src="assets/demos/virtualstoredemo.gif" width="400" alt="Virtual Store Demo">
+   </p>
+   
+   > * See also in [`demos`](https://github.com/felipecastrosales/Virtual-Store/tree/master/assets/demos/virtualstoredemo.gif) folder. 🧐📂
+   > * See better quality on my [Google Drive](https://drive.google.com/file/d/1EJmYvGzW8DpIWN-i-hK3E7mdFjNM5uFl/view?usp=sharing).
+   > * And [teste apk](https://drive.google.com/file/d/1jsKqqu9IzejZC_IAErvcWj8Yr8IpCtC7/view?usp=sharing).
+ 
 ---
 
 <h2 align="center">Functionalities 🛠️</h2>
