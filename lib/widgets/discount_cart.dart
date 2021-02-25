@@ -38,7 +38,7 @@ class DiscountCart extends StatelessWidget {
                   if (docSnap.data != null) {
                     CartModel.of(context)
                       .setCoupon(text, docSnap.data['percent']);
-                    Scaffold.of(context).showSnackBar(SnackBar(
+                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                       duration: Duration(seconds: 5),
                       backgroundColor: Colors.amber,
                       content: Text(
@@ -48,7 +48,7 @@ class DiscountCart extends StatelessWidget {
                     ));
                   } else {
                     CartModel.of(context).setCoupon(null, 0);
-                    Scaffold.of(context).showSnackBar(SnackBar(
+                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                       duration: Duration(seconds: 5),
                       backgroundColor: Colors.redAccent,
                       content: Text(
