@@ -57,20 +57,21 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     } else {
                       return null;
                     }
-                  }
+                  },
                 ),
                 SizedBox(height: 16),
                 TextFormField(
                   controller: _emailController,
-                  decoration: InputDecoration(hintText: 'E-mail',),
+                  decoration: InputDecoration(hintText: 'E-mail'),
                   keyboardType: TextInputType.emailAddress,
                   validator: (text) {
                     if (text.isEmpty || !text.contains('@')) {
                       return 'E-mail inválido';
                     } else {
-                        return null;
+                      return null;
                     }
-                  }),
+                  },
+                ),
                 SizedBox(height: 16),
                 TextFormField(
                   controller: _passController,
@@ -82,19 +83,19 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     } else {
                       return null;
                     }
-                  }  
-                ),  
+                  },
+                ),
                 SizedBox(height: 16),
                 TextFormField(
-                controller: _addressController,
-                decoration: InputDecoration(hintText: 'Endereço'),
-                validator: (text) {
-                  if (text.isEmpty) {
-                    return 'Endereço inválido';
-                  } else {
-                    return null;
-                  }
-                }
+                  controller: _addressController,
+                  decoration: InputDecoration(hintText: 'Endereço'),
+                  validator: (text) {
+                    if (text.isEmpty) {
+                      return 'Endereço inválido';
+                    } else {
+                      return null;
+                    }
+                  },
                 ),
                 SizedBox(height: 16),
                 SizedBox(
@@ -105,7 +106,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       style: TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
-                        color: Colors.white),
+                        color: Colors.white,
+                      ),
                     ),
                     color: Colors.amber,
                     onPressed: () {
@@ -119,7 +121,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           userData: userData,
                           pass: _passController.text,
                           onSuccess: _onSuccess,
-                          onFail: _onFail
+                          onFail: _onFail,
                         );
                       }
                     },
@@ -129,31 +131,36 @@ class _SignUpScreenState extends State<SignUpScreen> {
             ),
           );
         },
-      )
+      ),
     );
   }
 
   void _onSuccess() {
-    _scaffoldKey.currentState.showSnackBar(SnackBar(
-      content: Text(
-        'Você criou sua conta com sucesso!',
-        style: TextStyle(fontSize: 16),
+    _scaffoldKey.currentState.showSnackBar(
+      SnackBar(
+        content: Text(
+          'Você criou sua conta com sucesso!',
+          style: TextStyle(fontSize: 16),
+        ),
+        backgroundColor: Colors.amber,
+        duration: Duration(seconds: 3),
       ),
-      backgroundColor: Colors.amber,
-      duration: Duration(seconds: 3),
-    ));
-    Future.delayed(Duration(seconds: 3)).then((_) => 
-      Navigator.of(context).pop());
+    );
+    Future.delayed(Duration(seconds: 3)).then(
+      (_) => Navigator.of(context).pop(),
+    );
   }
 
   void _onFail() {
-    _scaffoldKey.currentState.showSnackBar(SnackBar(
-      content: Text(
-        'Falha ao criar usuário',
-        style: TextStyle(fontSize: 16),
+    _scaffoldKey.currentState.showSnackBar(
+      SnackBar(
+        content: Text(
+          'Falha ao criar usuário',
+          style: TextStyle(fontSize: 16),
+        ),
+        backgroundColor: Colors.red,
+        duration: Duration(seconds: 3),
       ),
-      backgroundColor: Colors.red,
-      duration: Duration(seconds: 3),
-    ));
+    );
   }
 }

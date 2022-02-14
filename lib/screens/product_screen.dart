@@ -79,7 +79,8 @@ class _ProductScreenState extends State<ProductScreen> {
                   style: TextStyle(
                     fontFamily: 'Merriweather',
                     fontSize: 16,
-                    fontWeight: FontWeight.bold),
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
                 SizedBox(
                   height: 32,
@@ -91,27 +92,32 @@ class _ProductScreenState extends State<ProductScreen> {
                       mainAxisSpacing: 6,
                       childAspectRatio: 0.6,
                     ),
-                    children: product.sizes.map((clothingSize) => 
-                      GestureDetector(
-                        onTap: () {
-                          setState(() {
-                            size = clothingSize;
-                          });
-                        },
-                        child: Container(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.all(Radius.circular(50)),
-                            border: Border.all(
-                              color: clothingSize == size
-                                ? Colors.amber
-                                : Colors.grey[600],
-                              width: 3),
+                    children: product.sizes
+                        .map(
+                          (clothingSize) => GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                size = clothingSize;
+                              });
+                            },
+                            child: Container(
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.all(
+                                  Radius.circular(50),
+                                ),
+                                border: Border.all(
+                                  color: clothingSize == size
+                                      ? Colors.amber
+                                      : Colors.grey[600],
+                                  width: 3,
+                                ),
+                              ),
+                              alignment: Alignment.center,
+                              child: Text(clothingSize),
+                            ),
                           ),
-                          alignment: Alignment.center,
-                          child: Text(clothingSize),
-                        ),
-                      )
-                    ).toList(),
+                        )
+                        .toList(),
                   ),
                 ),
                 SizedBox(height: 16),
@@ -129,23 +135,29 @@ class _ProductScreenState extends State<ProductScreen> {
                               cartProduct.category = product.category;
                               cartProduct.productData = product;
                               CartModel.of(context).addCartItem(cartProduct);
-
-                              Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => CartScreen()));
+                              Navigator.of(context).push(
+                                MaterialPageRoute(
+                                  builder: (context) => CartScreen(),
+                                ),
+                              );
                             } else {
-                              Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => LoginScreen()));
+                              Navigator.of(context).push(
+                                MaterialPageRoute(
+                                  builder: (context) => LoginScreen(),
+                                ),
+                              );
                             }
                           }
                         : null,
                     child: Text(
                       UserModel.of(context).isLoggedIn
-                        ? 'ADICIONAR AO CARRINHO'
-                        : 'ENTRAR PARA COMPRAR',
+                          ? 'ADICIONAR AO CARRINHO'
+                          : 'ENTRAR PARA COMPRAR',
                       style: TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
-                        color: Colors.white),
+                        color: Colors.white,
+                      ),
                     ),
                   ),
                 ),
@@ -155,7 +167,8 @@ class _ProductScreenState extends State<ProductScreen> {
                   style: TextStyle(
                     fontFamily: 'Merriweather',
                     fontSize: 18,
-                    fontWeight: FontWeight.bold),
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
                 SizedBox(height: 8),
                 Text(
@@ -163,7 +176,8 @@ class _ProductScreenState extends State<ProductScreen> {
                   style: TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.w800,
-                    color: Colors.grey[800]),
+                    color: Colors.grey[800],
+                  ),
                 ),
               ],
             ),

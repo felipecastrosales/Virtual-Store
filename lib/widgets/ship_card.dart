@@ -23,10 +23,10 @@ class ShipCard extends StatelessWidget {
             child: TextFormField(
               decoration: InputDecoration(
                 border: OutlineInputBorder(),
-                hintText: 'Em breve essa função estará disponível...'
+                hintText: 'Em breve essa função estará disponível...',
               ),
               initialValue: '',
-              onFieldSubmitted: (text){},
+              onFieldSubmitted: (text) {},
             ),
           )
         ],

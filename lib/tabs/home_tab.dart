@@ -7,14 +7,17 @@ class HomeTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Widget _buildBodyBack() => Container(
-      decoration: BoxDecoration(
-        gradient: LinearGradient(colors: [
-          Colors.amber,
-          Colors.yellow[100],
-        ],
-        begin: Alignment.topCenter, end: Alignment.bottomCenter),
-      ),
-    );
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: [
+                Colors.amber,
+                Colors.yellow[100],
+              ],
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+            ),
+          ),
+        );
 
     return Stack(
       children: <Widget>[
@@ -62,7 +65,10 @@ class HomeTab extends StatelessWidget {
                     mainAxisSpacing: 4,
                     crossAxisSpacing: 4,
                     staggeredTiles: snapshot.data.documents.map((doc) {
-                      return StaggeredTile.count(doc.data['x'], doc.data['y']);
+                      return StaggeredTile.count(
+                        doc.data['x'],
+                        doc.data['y'],
+                      );
                     }).toList(),
                     children: snapshot.data.documents.map((doc) {
                       return FadeInImage.memoryNetwork(

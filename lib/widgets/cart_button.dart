@@ -8,8 +8,11 @@ class CartButton extends StatelessWidget {
       backgroundColor: Colors.amber,
       child: Icon(Icons.shopping_cart, color: Colors.white),
       onPressed: () {
-        Navigator.of(context)
-          .push(MaterialPageRoute(builder: (context) => CartScreen()));
+        Navigator.of(context).push(
+          MaterialPageRoute(
+            builder: (context) => CartScreen(),
+          ),
+        );
       },
     );
   }

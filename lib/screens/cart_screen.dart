@@ -39,97 +39,108 @@ class CartScreen extends StatelessWidget {
                   style: TextStyle(
                     fontFamily: 'Merriweather',
                     fontSize: 18,
-                    color: Colors.white),
+                    color: Colors.white,
+                  ),
                 );
               },
-            )
-          )
+            ),
+          ),
         ],
       ),
-      body: ScopedModelDescendant<CartModel>(builder: (context, child, model) {
-        if (model.isLoading && UserModel.of(context).isLoggedIn) {
-          return Center(
-            child: CircularProgressIndicator(),
-          );
-        } else if (!UserModel.of(context).isLoggedIn) {
-          return Container(
-            padding: EdgeInsets.all(16),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Icon(
-                  Icons.remove_shopping_cart,
-                  color: Colors.amber,
-                  size: 100,
-                ),
-                SizedBox(height: 16),
-                Text(
-                  'Faça o login ou cadastre-se \n'
-                  'para adicionar produtos \n ao seu carrinho',
-                  style: TextStyle(
-                    fontFamily: 'Merriweather',
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
+      body: ScopedModelDescendant<CartModel>(
+        builder: (context, child, model) {
+          if (model.isLoading && UserModel.of(context).isLoggedIn) {
+            return Center(
+              child: CircularProgressIndicator(),
+            );
+          } else if (!UserModel.of(context).isLoggedIn) {
+            return Container(
+              padding: EdgeInsets.all(16),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Icon(
+                    Icons.remove_shopping_cart,
                     color: Colors.amber,
+                    size: 100,
                   ),
-                  textAlign: TextAlign.center,
-                ),
-                SizedBox(height: 16),
-                RaisedButton(
-                  color: Colors.amber,
-                  child: Text(
-                    'ENTRAR',
+                  SizedBox(height: 16),
+                  Text(
+                    'Faça o login ou cadastre-se \n'
+                    'para adicionar produtos \n ao seu carrinho',
                     style: TextStyle(
                       fontFamily: 'Merriweather',
-                      fontSize: 22,
+                      fontSize: 20,
                       fontWeight: FontWeight.bold,
-                      color: Colors.white,
+                      color: Colors.amber,
                     ),
                     textAlign: TextAlign.center,
                   ),
-                  onPressed: () {
-                    Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context) => LoginScreen()));
+                  SizedBox(height: 16),
+                  RaisedButton(
+                    color: Colors.amber,
+                    child: Text(
+                      'ENTRAR',
+                      style: TextStyle(
+                        fontFamily: 'Merriweather',
+                        fontSize: 22,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                    onPressed: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) => LoginScreen(),
+                        ),
+                      );
+                    },
+                  ),
+                ],
+              ),
+            );
+          } else if (model.products == null || model.products.isEmpty) {
+            return Center(
+              child: Text(
+                'Você não possui nenhum \n produto no carrinho.',
+                style: TextStyle(
+                  fontFamily: 'Merriweather',
+                  fontSize: 22,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.amber,
+                ),
+                textAlign: TextAlign.center,
+              ),
+            );
+          } else {
+            return ListView(
+              children: <Widget>[
+                Column(
+                  children: model.products.map((product) {
+                    return CartTile(product);
+                  }).toList(),
+                ),
+                DiscountCart(),
+                ShipCard(),
+                CartPrice(
+                  () async {
+                    var orderId = await model.finishOrder();
+                    if (orderId != null) {
+                      Navigator.of(context).pushReplacement(
+                        MaterialPageRoute(
+                          builder: (context) => OrderScreen(orderId),
+                        ),
+                      );
+                    }
                   },
                 ),
               ],
-            ),
-          );
-        } else if (model.products == null || model.products.isEmpty) {
-          return Center(
-            child: Text(
-              'Você não possui nenhum \n produto no carrinho.',
-              style: TextStyle(
-                fontFamily: 'Merriweather',
-                fontSize: 22,
-                fontWeight: FontWeight.bold,
-                color: Colors.amber,
-              ),
-              textAlign: TextAlign.center,
-            ),
-          );
-        } else {
-          return ListView(
-            children: <Widget>[
-              Column(
-                children: model.products.map((product) {
-                  return CartTile(product);
-                }).toList(),
-              ),
-              DiscountCart(),
-              ShipCard(),
-              CartPrice(() async {
-                var orderId = await model.finishOrder();
-                if (orderId != null) {
-                  Navigator.of(context).pushReplacement(MaterialPageRoute(
-                    builder: (context) => OrderScreen(orderId)));
-                }
-              }),
-            ],
-          );
-        }
-      }),
+            );
+          }
+        },
+      ),
     );
   }
 }

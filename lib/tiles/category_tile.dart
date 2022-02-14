@@ -25,7 +25,10 @@ class CategoryTile extends StatelessWidget {
       trailing: Icon(Icons.keyboard_arrow_right_rounded, size: 28),
       onTap: () {
         Navigator.of(context).push(
-          MaterialPageRoute(builder: (context) => CategoryScreen(snapshot)));
+          MaterialPageRoute(
+            builder: (context) => CategoryScreen(snapshot),
+          ),
+        );
       },
     );
   }

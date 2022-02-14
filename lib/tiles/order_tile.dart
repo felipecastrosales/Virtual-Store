@@ -117,7 +117,7 @@ class OrderTile extends StatelessWidget {
           backgroundColor: backColor,
           child: child,
         ),
-        Text(subtitle)
+        Text(subtitle),
       ],
     );
   }

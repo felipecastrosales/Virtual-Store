@@ -1,5 +1,4 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../models/cart_model.dart';
 
@@ -55,9 +54,9 @@ class DiscountCart extends StatelessWidget {
                         'Esse cupom não existe, verifique se seu código '
                         'está certo ou entre em contato conosco.',
                       ),
-                    ));
+                    ),);
                   }
-                });
+                },);
               },
             ),
           )

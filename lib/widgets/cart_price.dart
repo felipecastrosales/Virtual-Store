@@ -17,7 +17,6 @@ class CartPrice extends StatelessWidget {
             var price = model.getProductPrice();
             var discount = model.getDiscount();
             var ship = model.getShipPrice();
-              
             return Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
@@ -49,7 +48,7 @@ class CartPrice extends StatelessWidget {
                       style: TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
-                        color: Colors.amber
+                        color: Colors.amber,
                       ),
                     ),
                   ],
@@ -64,7 +63,7 @@ class CartPrice extends StatelessWidget {
                         fontFamily: 'Merriweather',
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
-                        color: Colors.grey[800]
+                        color: Colors.grey[800],
                       ),
                     ),
                     Text(
@@ -72,7 +71,7 @@ class CartPrice extends StatelessWidget {
                       style: TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
-                        color: Colors.amber
+                        color: Colors.amber,
                       ),
                     ),
                   ],
@@ -87,7 +86,7 @@ class CartPrice extends StatelessWidget {
                         fontFamily: 'Merriweather',
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
-                        color: Colors.grey[800]
+                        color: Colors.grey[800],
                       ),
                     ),
                     Text(
@@ -95,7 +94,7 @@ class CartPrice extends StatelessWidget {
                       style: TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
-                        color: Colors.amber
+                        color: Colors.amber,
                       ),
                     ),
                   ],
@@ -119,7 +118,7 @@ class CartPrice extends StatelessWidget {
                       style: TextStyle(
                         fontSize: 24,
                         fontWeight: FontWeight.bold,
-                        color: Colors.amber
+                        color: Colors.amber,
                       ),
                     ),
                   ],
@@ -132,7 +131,7 @@ class CartPrice extends StatelessWidget {
                     style: TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
-                      color: Colors.white
+                      color: Colors.white,
                     ),
                   ),
                   onPressed: buy,

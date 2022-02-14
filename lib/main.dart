@@ -11,20 +11,22 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ScopedModel<UserModel>(
       model: UserModel(),
-      child: ScopedModelDescendant<UserModel>(builder: (context, child, model) {
-        return ScopedModel<CartModel>(
-          model: CartModel(model),
-          child: MaterialApp(
-            title: '@normaltda',
-            debugShowCheckedModeBanner: false,
-            home: HomeScreen(),
-            theme: ThemeData(
-              primarySwatch: Colors.amber,
-              primaryColor: Colors.amber,
+      child: ScopedModelDescendant<UserModel>(
+        builder: (context, child, model) {
+          return ScopedModel<CartModel>(
+            model: CartModel(model),
+            child: MaterialApp(
+              title: '@normaltda',
+              debugShowCheckedModeBanner: false,
+              home: HomeScreen(),
+              theme: ThemeData(
+                primarySwatch: Colors.amber,
+                primaryColor: Colors.amber,
+              ),
             ),
-          ),
-        );
-      }),
+          );
+        },
+      ),
     );
   }
 }

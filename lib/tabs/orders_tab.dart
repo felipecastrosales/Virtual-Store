@@ -33,29 +33,35 @@ class OrdersTab extends StatelessWidget {
       );
     } else {
       return Container(
-        padding: EdgeInsets.all(16.0),
+        padding: EdgeInsets.all(16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Icon(Icons.view_list, size: 80.0, color: Colors.amber),
-            SizedBox(height: 16.0),
+            Icon(Icons.view_list, size: 80, color: Colors.amber),
+            SizedBox(height: 16),
             Text(
               'Faça o login para acompanhar!',
-              style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+              ),
               textAlign: TextAlign.center,
             ),
-            SizedBox(height: 16.0),
+            SizedBox(height: 16),
             RaisedButton(
               child: Text(
                 'Entrar',
-                style: TextStyle(fontSize: 18.0),
+                style: TextStyle(fontSize: 18),
               ),
               textColor: Colors.white,
               color: Theme.of(context).primaryColor,
               onPressed: () {
                 Navigator.of(context).push(
-                  MaterialPageRoute(builder: (context) => LoginScreen()));
+                  MaterialPageRoute(
+                    builder: (context) => LoginScreen(),
+                  ),
+                );
               },
             )
           ],

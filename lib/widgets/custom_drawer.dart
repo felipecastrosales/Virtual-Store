@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:scoped_model/scoped_model.dart';
 import '../models/user_model.dart';
@@ -12,15 +11,18 @@ class CustomDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Widget _buildDrawerBack() => Container(
-      decoration: BoxDecoration(
-        gradient: LinearGradient(colors: [
-          Colors.amber[100],
-          Colors.amber[50],
-          Colors.white,
-        ], 
-        begin: Alignment.topCenter, end: Alignment.bottomCenter),
-      ),
-    );
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: [
+                Colors.amber[100],
+                Colors.amber[50],
+                Colors.white,
+              ],
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+            ),
+          ),
+        );
 
     return Drawer(
       child: Stack(
@@ -68,8 +70,8 @@ class CustomDrawer extends StatelessWidget {
                               GestureDetector(
                                 child: Text(
                                   !model.isLoggedIn
-                                    ? 'Entre ou cadastre-se'
-                                    : 'Sair',
+                                      ? 'Entre ou cadastre-se'
+                                      : 'Sair',
                                   style: TextStyle(
                                     color: Theme.of(context).primaryColor,
                                     fontSize: 20,
@@ -79,8 +81,10 @@ class CustomDrawer extends StatelessWidget {
                                 onTap: () {
                                   if (!model.isLoggedIn) {
                                     Navigator.of(context).push(
-                                      MaterialPageRoute(builder: (context) =>
-                                        LoginScreen()));
+                                      MaterialPageRoute(
+                                        builder: (context) => LoginScreen(),
+                                      ),
+                                    );
                                   } else {
                                     model.signOut();
                                   }
@@ -89,15 +93,36 @@ class CustomDrawer extends StatelessWidget {
                             ],
                           );
                         },
-                      )),
+                      ),
+                    ),
                   ],
                 ),
               ),
               Divider(color: Colors.amber),
-              DrawerTile(Icons.home, 'Início', pageController, 0),
-              DrawerTile(Icons.list, 'Produtos', pageController, 1),
-              DrawerTile(Icons.location_on, 'Loja', pageController, 2),
-              DrawerTile(Icons.shopping_cart, 'Meus pedidos', pageController,3),
+              DrawerTile(
+                Icons.home,
+                'Início',
+                pageController,
+                0,
+              ),
+              DrawerTile(
+                Icons.list,
+                'Produtos',
+                pageController,
+                1,
+              ),  
+              DrawerTile(
+                Icons.location_on,
+                'Loja',
+                pageController,
+                2,
+              ),
+              DrawerTile(
+                Icons.shopping_cart,
+                'Meus pedidos',
+                pageController,
+                3,
+              ),
             ],
           ),
         ],
